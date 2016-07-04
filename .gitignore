@@ -32,3 +32,6 @@ sysinfo.txt
 # Unite mercurial stuff
 *.hgeol
 *.hgignore
+
+# Our screenshot thingie
+/Assets/Screenshots/*
