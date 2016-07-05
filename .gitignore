@@ -17,7 +17,7 @@ ExportedObj/
 *.pidb
 *.booproj
 *.svd
-
+UpgradeLog*.htm
 
 # Unity3D generated meta files
 *.pidb.meta
@@ -29,7 +29,7 @@ sysinfo.txt
 *.apk
 *.unitypackage
 
-# Unite mercurial stuff
+# Unity mercurial stuff
 *.hgeol
 *.hgignore
 
