@@ -128,38 +128,41 @@ public class MultiplayerManager : MonoBehaviour
 	
 	public void OnGUI()
 	{
-		float width = 200;
-		float height = 300;
-		int playerNum = 0;
-		for (int i = 0; i < players.Count; i++)
-		{
-			PlayerInfo player = players[i];
+        ConnectScreen connectScreen = (ConnectScreen)FindObjectOfType(typeof(ConnectScreen));
+        if (!connectScreen) {
+		    float width = 200;
+		    float height = 300;
+		    int playerNum = 0;
+		    for (int i = 0; i < players.Count; i++)
+		    {
+			    PlayerInfo player = players[i];
 			
-			Rect rect = new Rect(20 + (width + 20) * playerNum, (Screen.height - height) * 0.5f, width, height);
-			GUILayout.BeginArea(rect, "Player", "box");
-			GUILayout.Space(20);
+			    Rect rect = new Rect(20 + (width + 20) * playerNum, (Screen.height - height) * 0.5f, width, height);
+			    GUILayout.BeginArea(rect, "Player", "box");
+			    GUILayout.Space(20);
 			
-			GUILayout.BeginVertical();
-			GUILayout.Space(10);
-			if (!player.ready)
-			{
-				GUILayout.Label(string.Format("Press {0} when ready\n\n(Press {1} to leave)",
-					player.joinControl.GetPrimarySourceName(),
-					player.leaveControl.GetPrimarySourceName()));
-			}
-			else
-			{
-				GUILayout.Label(string.Format("READY\n\n(Press {0} to cancel)",
-					player.leaveControl.GetPrimarySourceName()));
-			}
-			GUILayout.EndVertical();
-			GUILayout.EndArea();
+			    GUILayout.BeginVertical();
+			    GUILayout.Space(10);
+			    if (!player.ready)
+			    {
+				    GUILayout.Label(string.Format("Press {0} when ready\n\n(Press {1} to leave)",
+					    player.joinControl.GetPrimarySourceName(),
+					    player.leaveControl.GetPrimarySourceName()));
+			    }
+			    else
+			    {
+				    GUILayout.Label(string.Format("READY\n\n(Press {0} to cancel)",
+					    player.leaveControl.GetPrimarySourceName()));
+			    }
+			    GUILayout.EndVertical();
+			    GUILayout.EndArea();
 			
-			playerNum++;
-		}
-	}
-	
-	void StartGame()
+			    playerNum++;
+		    }
+        }
+    }
+
+    void StartGame()
 	{
 		for (int i = 0; i < players.Count; i++)
 		{
