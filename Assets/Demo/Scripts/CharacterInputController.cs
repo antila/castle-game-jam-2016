@@ -62,7 +62,7 @@ public class CharacterInputController
 		m_Rigid.velocity = new Vector3(velocity.x, m_Rigid.velocity.y, velocity.z);
 
 		// Look
-		var look = m_MapInput.look.vector2;
+		var look = m_MapInput.look.vector2 * 3;
 
 		m_Rotation.y += look.x;
 		m_Rotation.x = Mathf.Clamp(m_Rotation.x - look.y, -89, 89);
