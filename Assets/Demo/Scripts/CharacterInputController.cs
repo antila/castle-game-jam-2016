@@ -13,6 +13,7 @@ public class CharacterInputController
 	FirstPersonControls m_MapInput;
 	Rigidbody m_Rigid;
 	Vector2 m_Rotation = Vector2.zero;
+
 	float m_TimeOfLastShot;
 
 	public PlayerInput playerInput;
@@ -21,10 +22,12 @@ public class CharacterInputController
 	public GameObject projectile;
 	public float timeBetweenShots = 0.5f;
 
-    public float jumpPower = 300;
+    public float jumpPower = 600;
 	private float distToGround;
 
-	[Space(10)]
+    public DragRigidbody drag;
+
+    [Space(10)]
 
 	public CubeSizer sizer;
 	public Text controlsText;
@@ -38,7 +41,10 @@ public class CharacterInputController
 			rebinder.Initialize(m_MapInput);
 
 		m_Rigid = GetComponent<Rigidbody>();
-		LockCursor(true);
+
+        drag = GetComponent<DragRigidbody>();
+
+        LockCursor(true);
 
 		if (!playerInput.handle.global) {
 			transform.Find("Canvas/Virtual Joystick").gameObject.SetActive(false);
@@ -68,17 +74,24 @@ public class CharacterInputController
 		var fire = m_MapInput.fire.isHeld;
 		if (fire)
 		{
+            /*
 			var currentTime = Time.time;
 			var timeElapsedSinceLastShot = currentTime - m_TimeOfLastShot;
 			if (timeElapsedSinceLastShot > timeBetweenShots)
 			{
 				m_TimeOfLastShot = currentTime;
 				Fire();
-			}
-		}
+			}*/
+            drag.HandleInputBegin(transform);
+        } else {
+            drag.HandleInputEnd(transform);
+        }
 
-		// Jump
-		var jump = m_MapInput.jump.isHeld;
+        // Drag
+        drag.HandleInput(transform);
+
+        // Jump
+        var jump = m_MapInput.jump.isHeld;
 		if (jump && IsGrounded())
 		{
 			Jump();
@@ -129,6 +142,8 @@ public class CharacterInputController
 
 	void Fire()
 	{
+        //ag.HandleInputBegin(transform);
+        /*
 		var newProjectile = Instantiate(projectile);
 		newProjectile.transform.position = head.position + head.forward * 0.6f;
 		newProjectile.transform.rotation = head.rotation;
@@ -137,7 +152,8 @@ public class CharacterInputController
 		newProjectile.GetComponent<Rigidbody>().mass = Mathf.Pow(size, 3);
 		newProjectile.GetComponent<Rigidbody>().AddForce(head.forward * 20f, ForceMode.Impulse);
 		newProjectile.GetComponent<MeshRenderer>().material.color = new Color(Random.value, Random.value, Random.value, 1.0f);
-	}
+        */
+    }
 
     bool IsGrounded() {
   		return Physics.Raycast(transform.position, -Vector3.up, distToGround + 0.1f);
