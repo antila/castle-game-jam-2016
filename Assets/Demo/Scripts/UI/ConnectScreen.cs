@@ -6,6 +6,7 @@ using System.Collections.Generic;
 
 public class ConnectScreen : MonoBehaviour {
     public MultiplayerManager Multiplayer;
+    public GameObject NextScreen;
 
     public List<Image> statusImages = new List<Image>();
 
@@ -13,7 +14,10 @@ public class ConnectScreen : MonoBehaviour {
     void Start () {
 	    
 	}
-
+    public void ShowGameScreen () {
+        NextScreen.SetActive(true);
+        this.gameObject.SetActive(false);
+    }
     // Update is called once per frame
     public void OnGUI () {
         for (int i = 0; i < statusImages.Count; i++) {

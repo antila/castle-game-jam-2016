@@ -12,6 +12,7 @@ public class MultiplayerManager : MonoBehaviour
 	public class StartGameEvent : UnityEvent { }
 
 	public PlayerInput playerPrefab;
+    public bool isStartScene = false;
 
 	[Space]
 
@@ -44,8 +45,9 @@ public class MultiplayerManager : MonoBehaviour
     public List<PlayerInfo> players = new List<PlayerInfo>();
 
     PlayerHandle globalHandle;
-	
-	public void Start()
+    ConnectScreen connectScreen = null;
+
+    public void Start()
 	{
 		// Create a global player handle that listen to all relevant devices not already used
 		// by other player handles.
@@ -63,12 +65,14 @@ public class MultiplayerManager : MonoBehaviour
 
 		joinAction.Bind(globalHandle);
 		leaveAction.Bind(globalHandle);
-	}
-	
-	public void Update()
+
+    }
+
+    public void Update()
 	{
-		// Listen to if the join button was pressed on a yet unassigned device.
-		if (joinAction.control.wasJustPressed)
+        connectScreen = (ConnectScreen)FindObjectOfType(typeof(ConnectScreen));
+        // Listen to if the join button was pressed on a yet unassigned device.
+        if ((joinAction.control.wasJustPressed && !isStartScene) || (joinAction.control.wasJustPressed && isStartScene && connectScreen && connectScreen.isActiveAndEnabled))
 		{
 			// These are the devices currently active in the global player handle.
 			List<InputDevice> devices = globalHandle.GetActions(joinAction.action.actionMap).GetCurrentlyUsedDevices();
@@ -122,14 +126,16 @@ public class MultiplayerManager : MonoBehaviour
 				readyCount++;
 		}
 
-		if (readyCount >= 1 && (players.Count - readyCount) == 0)
-			StartGame();
+        if (isStartScene && connectScreen && readyCount >= 1 && (players.Count - readyCount) == 0) {
+            connectScreen.ShowGameScreen();
+        } else if (!isStartScene && readyCount >= 1 && (players.Count - readyCount) == 0) {
+            StartGame();
+        }
 	}
 	
 	public void OnGUI()
 	{
-        ConnectScreen connectScreen = (ConnectScreen)FindObjectOfType(typeof(ConnectScreen));
-        if (!connectScreen) {
+        if (!isStartScene) {
 		    float width = 200;
 		    float height = 300;
 		    int playerNum = 0;

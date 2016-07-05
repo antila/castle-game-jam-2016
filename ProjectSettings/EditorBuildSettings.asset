@@ -7,3 +7,5 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Demo/Scenes/Singleplayer.unity
+  - enabled: 1
+    path: Assets/Demo/Scenes/Start.unity
