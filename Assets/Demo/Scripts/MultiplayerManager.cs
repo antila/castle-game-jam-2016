@@ -170,7 +170,7 @@ public class MultiplayerManager : MonoBehaviour
         }
     }
 
-    void StartGame()
+    public void StartGame()
 	{
 		for (int i = 0; i < players.Count; i++)
 		{

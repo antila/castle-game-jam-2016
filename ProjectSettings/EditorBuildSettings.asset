@@ -9,3 +9,5 @@ EditorBuildSettings:
     path: Assets/Demo/Scenes/Singleplayer.unity
   - enabled: 1
     path: Assets/Demo/Scenes/Start.unity
+  - enabled: 1
+    path: Assets/Demo/Scenes/TestScenes/EriksTest.unity
