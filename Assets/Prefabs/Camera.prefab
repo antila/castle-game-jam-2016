@@ -15,6 +15,8 @@ GameObject:
   - 114: {fileID: 11482906}
   - 114: {fileID: 11449136}
   - 114: {fileID: 11427640}
+  - 114: {fileID: 11496236}
+  - 114: {fileID: 11462218}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -94,18 +96,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60e318a6043c1cb4a8ce1c8805bab930, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  supportHDRTextures: 1
+  supportDX11: 0
+  isSupported: 1
+  createdMaterials: []
   resolution: 1
   screenBlendMode: 0
   sunTransform: {fileID: 0}
   radialBlurIterations: 2
-  sunColor: {r: 1, g: 1, b: 1, a: 1}
-  sunThreshold: {r: 0.87, g: 0.74, b: 0.65, a: 1}
+  sunColor:
+    r: 1
+    g: 1
+    b: 1
+    a: 1
+  sunThreshold:
+    r: 0.87
+    g: 0.74
+    b: 0.65
+    a: 1
   sunShaftBlurRadius: 2.5
   sunShaftIntensity: 1.15
   maxRadius: 0.75
   useDepthTexture: 1
   sunShaftsShader: {fileID: 4800000, guid: d3b1c8c1036784176946f5cfbfb7fe4c, type: 3}
+  sunShaftsMaterial: {fileID: 0}
   simpleClearShader: {fileID: 4800000, guid: f688f89ed5eb847c5b19c934a0f1e772, type: 3}
+  simpleClearMaterial: {fileID: 0}
 --- !u!114 &11449136
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -117,6 +133,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd6d4281e5d7cd44d8c6e38bc2c1b8d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  supportHDRTextures: 1
+  supportDX11: 0
+  isSupported: 1
+  createdMaterials: []
   mode: 0
   intensity: 0.252
   chromaticAberration: 0.2
@@ -129,6 +149,32 @@ MonoBehaviour:
   separableBlurShader: {fileID: 4800000, guid: e97c14fbb5ea04c3a902cc533d7fc5d1, type: 3}
   chromAberrationShader: {fileID: 4800000, guid: 2b4f29398d9484ccfa9fd220449f5eee,
     type: 3}
+  m_VignetteMaterial: {fileID: 0}
+  m_SeparableBlurMaterial: {fileID: 0}
+  m_ChromAberrationMaterial: {fileID: 0}
+--- !u!114 &11462218
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 183230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 844e8803ab58d544fa9e891f3d8f40ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damping: 6
+  smooth: 1
+  minDistance: 10
+  property: 
+  color:
+    r: 0
+    g: 0
+    b: 0
+    a: 0
+  alpha: 1
+  _myTransform: {fileID: 0}
+  targetPlayer: {fileID: 0}
 --- !u!114 &11482906
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -148,7 +194,21 @@ MonoBehaviour:
   m_OcclusionAttenuation: 1
   m_MinZ: 0.01
   m_SSAOShader: {fileID: 4800000, guid: 43ca18288c424f645aaa1e9e07f04c50, type: 3}
+  m_SSAOMaterial: {fileID: 0}
   m_RandomTexture: {fileID: 2800000, guid: a181ca8e3c62f3e4b8f183f6c586b032, type: 3}
+  m_Supported: 0
+--- !u!114 &11496236
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 183230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc1288438db38ba42836293bd42fd539, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetPlayer: {fileID: 0}
 --- !u!124 &12490654
 Behaviour:
   m_ObjectHideFlags: 1
