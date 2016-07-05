@@ -26,7 +26,7 @@ public class MultiplayerManager : MonoBehaviour
 
 	public StartGameEvent onStartGame;
 	
-	class PlayerInfo
+	public class PlayerInfo
 	{
 		public PlayerHandle playerHandle;
 		public bool ready = false;
@@ -41,8 +41,9 @@ public class MultiplayerManager : MonoBehaviour
 		}
 	}
 
-	PlayerHandle globalHandle;
-	List<PlayerInfo> players = new List<PlayerInfo>();
+    public List<PlayerInfo> players = new List<PlayerInfo>();
+
+    PlayerHandle globalHandle;
 	
 	public void Start()
 	{
