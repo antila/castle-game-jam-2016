@@ -23,6 +23,7 @@ MonoBehaviour:
   - {fileID: 11455218}
   - {fileID: 11480086}
   - {fileID: 11418972}
+  - {fileID: 11455534}
   m_ControlSchemes:
   - m_Name: KeyboardMouse
     m_SerializableDeviceTypes:
@@ -134,7 +135,7 @@ MonoBehaviour:
       snap: 1
       primaryIsButtonAxis: 0
     - sources:
-      - controlIndex: 32
+      - controlIndex: 13
         deviceType:
           m_TypeName: UnityEngine.InputNew.Keyboard, Assembly-CSharp, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
@@ -168,6 +169,17 @@ MonoBehaviour:
       primaryIsButtonAxis: 0
     - sources:
       - controlIndex: 114
+        deviceType:
+          m_TypeName: UnityEngine.InputNew.Keyboard, Assembly-CSharp, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+      deadZone: 0.3
+      buttonAxisSources: []
+      gravity: 1000
+      sensitivity: 1000
+      snap: 1
+      primaryIsButtonAxis: 0
+    - sources:
+      - controlIndex: 32
         deviceType:
           m_TypeName: UnityEngine.InputNew.Keyboard, Assembly-CSharp, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
@@ -284,6 +296,17 @@ MonoBehaviour:
       sensitivity: 1000
       snap: 1
       primaryIsButtonAxis: 0
+    - sources:
+      - controlIndex: 10
+        deviceType:
+          m_TypeName: UnityEngine.InputNew.Gamepad, Assembly-CSharp, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+      deadZone: 0.3
+      buttonAxisSources: []
+      gravity: 1000
+      sensitivity: 1000
+      snap: 1
+      primaryIsButtonAxis: 0
   - m_Name: VirtualJoystick
     m_SerializableDeviceTypes:
     - m_TypeName: UnityEngine.InputNew.VirtualJoystick, Assembly-CSharp, Version=0.0.0.0,
@@ -364,6 +387,13 @@ MonoBehaviour:
         deviceType:
           m_TypeName: UnityEngine.InputNew.VirtualJoystick, Assembly-CSharp, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
+      deadZone: 0.3
+      buttonAxisSources: []
+      gravity: 1000
+      sensitivity: 1000
+      snap: 1
+      primaryIsButtonAxis: 0
+    - sources: []
       deadZone: 0.3
       buttonAxisSources: []
       gravity: 1000
@@ -500,6 +530,24 @@ MonoBehaviour:
     componentControlIndices: 
     controlType: 0
     name: LockCursor
+    defaultValue: 0
+--- !u!114 &11455534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eba7b4b2e3ea134991ccbff5f47c2c8, type: 3}
+  m_Name: Jump
+  m_EditorClassIdentifier: 
+  m_ActionMap: {fileID: 11400000}
+  m_ActionIndex: 11
+  m_ControlData:
+    componentControlIndices: 
+    controlType: 0
+    name: Jump
     defaultValue: 0
 --- !u!114 &11463784
 MonoBehaviour:
