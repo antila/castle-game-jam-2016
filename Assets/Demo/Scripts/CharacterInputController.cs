@@ -14,15 +14,18 @@ public class CharacterInputController
 	Rigidbody m_Rigid;
 	Vector2 m_Rotation = Vector2.zero;
 	float m_TimeOfLastShot;
-	
+
 	public PlayerInput playerInput;
 	public Transform head;
 	public float moveSpeed = 5;
 	public GameObject projectile;
 	public float timeBetweenShots = 0.5f;
-	
+
+    public float jumpPower = 300;
+	private float distToGround;
+
 	[Space(10)]
-	
+
 	public CubeSizer sizer;
 	public Text controlsText;
 	public RuntimeRebinding rebinder;
@@ -37,8 +40,11 @@ public class CharacterInputController
 		m_Rigid = GetComponent<Rigidbody>();
 		LockCursor(true);
 
-		if (!playerInput.handle.global)
+		if (!playerInput.handle.global) {
 			transform.Find("Canvas/Virtual Joystick").gameObject.SetActive(false);
+		}
+
+		distToGround = GetComponent<Collider>().bounds.extents.y;
 	}
 
 	public void Update()
@@ -71,12 +77,19 @@ public class CharacterInputController
 			}
 		}
 
+		// Jump
+		var jump = m_MapInput.jump.isHeld;
+		if (jump && IsGrounded())
+		{
+			Jump();
+		}
+
 		if (m_MapInput.lockCursor.wasJustPressed)
 			LockCursor(true);
 
 		if (m_MapInput.unlockCursor.wasJustPressed)
 			LockCursor(false);
-		
+
 		if (m_MapInput.menu.wasJustPressed)
 			sizer.OpenMenu();
 
@@ -84,7 +97,7 @@ public class CharacterInputController
 		{
 			if (m_MapInput.reconfigure.wasJustPressed)
 				rebinder.enabled = !rebinder.enabled;
-			
+
 			if (rebinder.enabled == m_MapInput.active)
 			{
 				LockCursor(!rebinder.enabled);
@@ -92,14 +105,14 @@ public class CharacterInputController
 				controlsText.enabled = !rebinder.enabled;
 			}
 		}
-		
+
 		HandleControlsText();
 	}
-	
+
 	void HandleControlsText()
 	{
 		string help = string.Empty;
-		
+
 		help += GetControlHelp(m_MapInput.moveX) + "\n";
 		help += GetControlHelp(m_MapInput.moveY) + "\n";
 		help += GetControlHelp(m_MapInput.lookX) + "\n";
@@ -108,7 +121,7 @@ public class CharacterInputController
 		help += GetControlHelp(m_MapInput.menu);
 		controlsText.text = help;
 	}
-	
+
 	private string GetControlHelp(InputControl control)
 	{
 		return string.Format("Use {0} to {1}!", control.GetPrimarySourceName(), control.name);
@@ -124,6 +137,17 @@ public class CharacterInputController
 		newProjectile.GetComponent<Rigidbody>().mass = Mathf.Pow(size, 3);
 		newProjectile.GetComponent<Rigidbody>().AddForce(head.forward * 20f, ForceMode.Impulse);
 		newProjectile.GetComponent<MeshRenderer>().material.color = new Color(Random.value, Random.value, Random.value, 1.0f);
+	}
+
+    bool IsGrounded() {
+  		return Physics.Raycast(transform.position, -Vector3.up, distToGround + 0.1f);
+	}
+
+	void Jump()
+	{
+		Debug.Log("Jump");
+        GetComponent<Rigidbody>().AddForce(Vector3.up * jumpPower);
+        //transform.Translate(Vector3.up * jumpPower * Time.deltaTime, Space.World);
 	}
 
 	void LockCursor(bool value)
