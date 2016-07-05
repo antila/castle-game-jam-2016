@@ -574,7 +574,7 @@ MonoBehaviour:
   onStartGame:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1268783357}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -2227,6 +2227,10 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1250065823}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1268783357 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 183230, guid: e7ca8efc4d8c2314ca0c961a91fc9876, type: 2}
+  m_PrefabInternal: {fileID: 10560359}
 --- !u!1 &1310255494
 GameObject:
   m_ObjectHideFlags: 0
