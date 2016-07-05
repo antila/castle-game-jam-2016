@@ -119,7 +119,8 @@ public class CharacterInputController
 			}
 		}
 
-		HandleControlsText();
+		//HandleControlsText();
+		controlsText.enabled = false;
 	}
 
 	void HandleControlsText()
