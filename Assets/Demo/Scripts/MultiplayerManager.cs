@@ -78,11 +78,9 @@ public class MultiplayerManager : MonoBehaviour
 		{
 			// These are the devices currently active in the global player handle.
 			List<InputDevice> devices = globalHandle.GetActions(joinAction.action.actionMap).GetCurrentlyUsedDevices();
-            Debug.Log(devices);
 			PlayerHandle handle = PlayerHandleManager.GetNewPlayerHandle();
 			foreach (var device in devices)
             {
-                Debug.Log(device);
                 handle.AssignDevice(device, true);
             }
 				

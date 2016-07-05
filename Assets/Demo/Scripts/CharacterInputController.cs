@@ -168,7 +168,6 @@ public class CharacterInputController
 
 	void Jump()
 	{
-		Debug.Log("Jump");
         GetComponent<Rigidbody>().AddForce(Vector3.up * jumpPower);
         //transform.Translate(Vector3.up * jumpPower * Time.deltaTime, Space.World);
 	}

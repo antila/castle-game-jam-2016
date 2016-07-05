@@ -24,7 +24,6 @@ public class ScreenshotOnPlay
 
     static void OnPlaymodeStateChange()
     {
-        Debug.Log("hey");
         if (EditorApplication.isPlaying)
         {
             isPlaying = !isPlaying;
@@ -45,7 +44,6 @@ public class ScreenshotOnPlay
                 // This works around a lack of coroutines in the editor.
                 GameObject go = new GameObject();
                 go.AddComponent<ScreenshotOnDelay>().SetTimer(2f, path);
-                Debug.Log("hey2");
             }
         }
     }

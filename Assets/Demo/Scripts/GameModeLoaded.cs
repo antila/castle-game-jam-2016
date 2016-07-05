@@ -19,10 +19,6 @@ public class GameModeLoaded : MonoBehaviour {
             globalController.globalMultiplayerManager.StartGame();
         }
 	}
-    void OnLevelWasLoaded(int level) {
-        if (level == SceneManager.GetActiveScene().buildIndex)
-            Debug.Log("Woohoo");
-    }
 
     // Update is called once per frame
     void Update () {
