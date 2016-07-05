@@ -6,7 +6,7 @@ public class SplitScreenSetup : MonoBehaviour
 	public void Setup () {
 		Camera[] cameras = FindObjectsOfType<Camera>();
 
-        switch (4) {
+        switch (cameras.Length) {
             case 1:
                 cameras[0].rect = new Rect(0, 0, 1, 1);
                 break;
