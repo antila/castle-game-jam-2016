@@ -124,8 +124,10 @@ namespace UnityEngine.InputNew
 
 		bool ProcessEvent(InputEvent inputEvent)
 		{
-			if (!global && (inputEvent.device.assignment == null || inputEvent.device.assignment.player != this))
-				return false;
+			if (!global && (inputEvent.device == null || inputEvent.device.assignment == null || inputEvent.device.assignment.player != this))
+            {
+                return false;
+            }
 
 			for (int i = 0; i < maps.Count; i++)
 			{

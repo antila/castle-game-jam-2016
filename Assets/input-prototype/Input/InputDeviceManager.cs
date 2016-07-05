@@ -23,7 +23,7 @@ namespace UnityEngine.InputNew
 		public InputDeviceManager()
 		{
 		}
-		
+
 		public void InitAfterProfiles()
 		{
 			// In the prototype, just create a set of default devices. In the real thing, these would be registered
@@ -32,8 +32,8 @@ namespace UnityEngine.InputNew
 			var mouseDevice = new Mouse();
 			RegisterDevice(mouseDevice);
 
-			var touchscreenDevice = new Touchscreen();
-			RegisterDevice(touchscreenDevice); // Register after mouse; multiplayer code will pick the first applicable device. It doesn't use MRU.
+			// var touchscreenDevice = new Touchscreen();
+			// RegisterDevice(touchscreenDevice); // Register after mouse; multiplayer code will pick the first applicable device. It doesn't use MRU.
 
 			var keyboardDevice = new Keyboard();
 			RegisterDevice(keyboardDevice);
@@ -44,8 +44,14 @@ namespace UnityEngine.InputNew
 			var gamepadDevice2 = new Gamepad();
 			RegisterDevice(gamepadDevice2);
 
-			var virtualJoystickDevice = new VirtualJoystick();
-			RegisterDevice(virtualJoystickDevice);
+            var gamepadDevice3 = new Gamepad();
+            RegisterDevice(gamepadDevice3);
+
+            var gamepadDevice4 = new Gamepad();
+            RegisterDevice(gamepadDevice4);
+
+            // var virtualJoystickDevice = new VirtualJoystick();
+			// RegisterDevice(virtualJoystickDevice);
 		}
 
 		#endregion
