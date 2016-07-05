@@ -138,6 +138,7 @@ GameObject:
   - 54: {fileID: 5424980}
   - 114: {fileID: 11461774}
   - 114: {fileID: 11440290}
+  - 114: {fileID: 11479634}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -924,6 +925,8 @@ MonoBehaviour:
   moveSpeed: 15
   projectile: {fileID: 171512, guid: 35bb1b2b246f2924c9e37e30f454c7ee, type: 2}
   timeBetweenShots: 0.1
+  jumpPower: 300
+  drag: {fileID: 0}
   sizer: {fileID: 11481002}
   controlsText: {fileID: 11439398}
   rebinder: {fileID: 0}
@@ -996,6 +999,19 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11479634
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 129762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f22cc6fa9191a1d4c8e875df5622d5f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  force: 600
+  damping: 6
 --- !u!114 &11481002
 MonoBehaviour:
   m_ObjectHideFlags: 1
