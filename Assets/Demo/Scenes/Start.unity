@@ -211,6 +211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 11440290, guid: fb8afa4e7f37746b191b1080b74a8737, type: 2}
+  cameraPrefab: {fileID: 183230, guid: e7ca8efc4d8c2314ca0c961a91fc9876, type: 2}
   isStartScene: 1
   joinAction:
     action: {fileID: 11419910, guid: 24548a596fd7f47dfa0d33e0d38d0dbd, type: 2}
@@ -225,29 +226,28 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 822080403}
-        m_MethodName: SetActive
+        m_MethodName: 536574416374697665
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: 556e697479456e67696e652e4f626a6563742c20556e697479456e67696e65
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 314104357}
-        m_MethodName: Setup
+        m_MethodName: 5365747570
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: 556e697479456e67696e652e4f626a6563742c20556e697479456e67696e65
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: MultiplayerManager+StartGameEvent, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+    m_TypeName: 4d756c7469706c617965724d616e616765722b537461727447616d654576656e742c20417373656d626c792d4353686172702c2056657273696f6e3d302e302e302e302c2043756c747572653d6e65757472616c2c205075626c69634b6579546f6b656e3d6e756c6c
 --- !u!4 &314104356
 Transform:
   m_ObjectHideFlags: 0
@@ -1450,6 +1450,56 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1147399577}
+--- !u!1001 &1156351369
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 451116, guid: fb8afa4e7f37746b191b1080b74a8737, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 30.228218
+      objectReference: {fileID: 0}
+    - target: {fileID: 451116, guid: fb8afa4e7f37746b191b1080b74a8737, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 10.623989
+      objectReference: {fileID: 0}
+    - target: {fileID: 451116, guid: fb8afa4e7f37746b191b1080b74a8737, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -10.187842
+      objectReference: {fileID: 0}
+    - target: {fileID: 451116, guid: fb8afa4e7f37746b191b1080b74a8737, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 451116, guid: fb8afa4e7f37746b191b1080b74a8737, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 451116, guid: fb8afa4e7f37746b191b1080b74a8737, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 451116, guid: fb8afa4e7f37746b191b1080b74a8737, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 451116, guid: fb8afa4e7f37746b191b1080b74a8737, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22366550, guid: fb8afa4e7f37746b191b1080b74a8737, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 151014, guid: fb8afa4e7f37746b191b1080b74a8737, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: fb8afa4e7f37746b191b1080b74a8737, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1351372090
 GameObject:
   m_ObjectHideFlags: 0

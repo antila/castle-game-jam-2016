@@ -46,15 +46,21 @@ public class CharacterInputController
 
         LockCursor(true);
 
-		if (!playerInput.handle.global) {
+		/*if (!playerInput.handle.global) {
 			transform.Find("Canvas/Virtual Joystick").gameObject.SetActive(false);
-		}
+		}*/
 
 		distToGround = GetComponent<Collider>().bounds.extents.y;
 	}
 
 	public void Update()
 	{
+        // hack
+        if (m_MapInput == null)
+        {
+            return;
+        }
+
 		// Move
 		var move = m_MapInput.move.vector2;
 
