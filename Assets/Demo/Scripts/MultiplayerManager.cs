@@ -12,6 +12,7 @@ public class MultiplayerManager : MonoBehaviour
 	public class StartGameEvent : UnityEvent { }
 
 	public PlayerInput playerPrefab;
+    public GameObject cameraPrefab;
     public bool isStartScene = false;
 
 	[Space]
@@ -30,7 +31,8 @@ public class MultiplayerManager : MonoBehaviour
 	public class PlayerInfo
 	{
 		public PlayerHandle playerHandle;
-		public bool ready = false;
+
+        public bool ready = false;
 		public ButtonInputControl joinControl;
 		public ButtonInputControl leaveControl;
 
@@ -184,7 +186,11 @@ public class MultiplayerManager : MonoBehaviour
 			Transform spawnTransform = spawnPositions[i % spawnPositions.Count];
 			var player = (PlayerInput)Instantiate(playerPrefab, spawnTransform.position, spawnTransform.rotation);
 			player.handle = playerInfo.playerHandle;
-		}
+
+            var camera = (GameObject)Instantiate(cameraPrefab, spawnTransform.position, spawnTransform.rotation);
+            camera.GetComponent<LookAtCamera>().targetPlayer = player;
+            camera.GetComponent<FollowCamera>().targetPlayer = player;
+        }
 		
 		if (onStartGame != null)
 			onStartGame.Invoke();
