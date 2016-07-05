@@ -6,10 +6,25 @@ public class SplitScreenSetup : MonoBehaviour
 	public void Setup () {
 		Camera[] cameras = FindObjectsOfType<Camera>();
 
-		float fraction = 1f / cameras.Length;
-		for (int i = 0; i < cameras.Length; i++)
-		{
-			cameras[i].rect = new Rect(0, fraction * i, 1, fraction);
-		}
+        switch (4) {
+            case 1:
+                cameras[0].rect = new Rect(0, 0, 1, 1);
+                break;
+            case 2:
+                cameras[0].rect = new Rect(0, 0.5f, 1, 0.5f);
+                cameras[1].rect = new Rect(0, 0, 1, 0.5f);
+                break;
+            case 3:
+                cameras[0].rect = new Rect(0, 0.5f, 1, 0.5f);
+                cameras[1].rect = new Rect(0, 0, 0.5f, 0.5f);
+                cameras[2].rect = new Rect(0.5f, 0, 0.5f, 0.5f);
+                break;
+            case 4:
+                cameras[0].rect = new Rect(0, 0.5f, 0.5f, 0.5f);
+                cameras[1].rect = new Rect(0.5f, 0.5f, 0.5f, 0.5f);
+                cameras[2].rect = new Rect(0, 0, 0.5f, 0.5f);
+                cameras[3].rect = new Rect(0.5f, 0, 0.5f, 0.5f);
+                break;
+        }
 	}
 }
