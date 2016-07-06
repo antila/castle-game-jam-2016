@@ -13,9 +13,7 @@ public class ConnectScreen : MonoBehaviour {
     public class StatusImages {
         public Image image;
         public Color color;
-        public Sprite inactive;
-        public Sprite active;
-        public Sprite ready;
+        public Text message;
     }
 
     public List<StatusImages> statusImages = new List<StatusImages>();
@@ -28,20 +26,23 @@ public class ConnectScreen : MonoBehaviour {
         for (int i = 0; i < statusImages.Count; i++) {
 
             if (i <= Multiplayer.players.Count - 1) {
+                Color playerColor = statusImages[i].color;
 
                 var player = Multiplayer.players[i];
 
                 if (player.ready) {
-                    statusImages[i].image.sprite = statusImages[i].ready;
-                    statusImages[i].image.color = Color.green;
+                    //statusImages[i].message.text = "READY!";
+                    playerColor.a = 1f;
+                    statusImages[i].image.color = playerColor;
                 } else {
-                    statusImages[i].image.sprite = statusImages[i].active;
-                    statusImages[i].image.color = statusImages[i].color;
+                    //statusImages[i].message.text = "READY?";
+                    playerColor = playerColor * 0.8f;
+                    playerColor.a = 1f;
+                    statusImages[i].image.color = playerColor;
                 }
 
             } else {
-                statusImages[i].image.sprite = statusImages[i].inactive;
-                statusImages[i].image.color = Color.black;
+                statusImages[i].image.color = new Color(0.5f,0.5f, 0.5f, 1f);
             }
         }
     }
