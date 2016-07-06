@@ -27,19 +27,23 @@ public class MultiplayerManager : MonoBehaviour
 	[Space]
 
 	public StartGameEvent onStartGame;
-	
-	public class PlayerInfo
+
+    public class PlayerInfo
 	{
 		public PlayerHandle playerHandle;
 
         public bool ready = false;
-		public ButtonInputControl joinControl;
+        public string result = "";
+        public bool winner = false;
+        public Color color = new Color(1f,1f,1f);
+
+        public ButtonInputControl joinControl;
 		public ButtonInputControl leaveControl;
 
 		public PlayerInfo(PlayerHandle playerHandle, ButtonAction joinAction, ButtonAction leaveAction)
 		{
 			this.playerHandle = playerHandle;
-			joinControl = playerHandle.GetActions(joinAction.action.actionMap)[joinAction.action.actionIndex] as ButtonInputControl;
+            joinControl = playerHandle.GetActions(joinAction.action.actionMap)[joinAction.action.actionIndex] as ButtonInputControl;
 			leaveControl = playerHandle.GetActions(leaveAction.action.actionMap)[leaveAction.action.actionIndex] as ButtonInputControl;
 		}
 	}
@@ -98,13 +102,16 @@ public class MultiplayerManager : MonoBehaviour
 				
 				handle.maps.Add(map);
 			}
-
+            
 			players.Add(new PlayerInfo(handle, joinAction, leaveAction));
-		}
 
-		int readyCount = 0;
-		for (int i = players.Count - 1; i >= 0; i--)
-		{
+            if (connectScreen) {
+                players[players.Count - 1].color = connectScreen.statusImages[players.Count - 1].color;
+            }
+        }
+
+        int readyCount = 0;
+		for (int i = players.Count - 1; i >= 0; i--) {
 			var player = players[i];
 			if (!player.ready)
 			{
@@ -168,6 +175,12 @@ public class MultiplayerManager : MonoBehaviour
         }
     }
 
+    public void SetReadyState(bool state = false) {
+        for (int i = players.Count - 1; i >= 0; i--) {
+            players[i].ready = false;
+        }
+    }
+
     public void StartGame()
 	{
 		for (int i = 0; i < players.Count; i++)
@@ -195,4 +208,5 @@ public class MultiplayerManager : MonoBehaviour
 		
 		gameObject.SetActive(false);
 	}
+
 }
