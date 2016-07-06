@@ -16,10 +16,6 @@ public class MultiplayerManager : MonoBehaviour
     public bool isStartScene = false;
 
     public List<GameObject> playerPrefabs = new List<GameObject>();
-    private GameObject player1Prefab;
-    private GameObject player2Prefab;
-    private GameObject player3Prefab;
-    private GameObject player4Prefab;
 
     [Space]
 
@@ -221,7 +217,6 @@ public class MultiplayerManager : MonoBehaviour
 
             player.cameraHandle = camera;
 
-            Debug.Log(player1Prefab);
             GameObject playerModel = (GameObject)Instantiate(playerPrefabs[i], spawnTransform.position, spawnTransform.rotation);
             playerModel.transform.parent = player.gameObject.transform;
 

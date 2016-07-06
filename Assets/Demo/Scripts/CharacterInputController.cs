@@ -10,7 +10,7 @@ using UnityEngine.Serialization;
 public class CharacterInputController
 	: MonoBehaviour
 {
-	FirstPersonControls m_MapInput;
+	public FirstPersonControls m_MapInput;
 	Rigidbody m_Rigid;
 	Vector2 m_Rotation = Vector2.zero;
 
@@ -104,6 +104,8 @@ public class CharacterInputController
         
         //Debug.Log(playerInput.handle.cameraHandle);
         mainCam = GetComponent<PlayerInput>().transform;
+
+        animator = GetComponentInChildren<Animator>();
     }
 
     private Quaternion lastRotation;
@@ -263,7 +265,7 @@ public class CharacterInputController
         if (ignoreY)
             relativePos.y = 0;
 
-        Debug.DrawRay(destination, relativePos, Color.red);
+        //Debug.DrawRay(destination, relativePos, Color.red);
 
         DistanceToTarget = relativePos.magnitude;
         if (DistanceToTarget <= stopDistance)
@@ -282,7 +284,7 @@ public class CharacterInputController
         lookDir.y = 0;
 
         //Debug.DrawRay(m_Rigid.position, m_Rigid.velocity, Color.blue);
-        Debug.DrawRay(transform.position, rigid.velocity, Color.green);
+        //Debug.DrawRay(transform.position, rigid.velocity, Color.green);
 
         Vector3 newDir = lookDir - characterPos;
         Quaternion dirQ = Quaternion.LookRotation(newDir);
@@ -319,6 +321,19 @@ public class CharacterInputController
             return;
         }
 
+        //set animation values
+        if (animator)
+        {
+            //animator.SetFloat("DistanceToTarget", characterMotor.DistanceToTarget);
+            float speed = Mathf.Round(rigid.velocity.magnitude);
+            //Debug.Log(grounded);
+            
+            animator.SetBool("Grounded", grounded);
+            animator.SetFloat("YVelocity", speed);
+
+            //Debug.Log(animator.GetFloat("YVelocity"));
+        }
+
         //stops rigidbody "sleeping" if we don't move, which would stop collision detection
         rigid.WakeUp();
         //handle jumping
@@ -350,9 +365,7 @@ public class CharacterInputController
 
         //direction = (screenMovementForward * v) + (screenMovementRight * h);
         //moveDirection = transform.position + direction;
-
-        Debug.Log(curAccel);
-
+        
         direction = playerInput.cameraHandle.transform.TransformDirection(new Vector3(h, 0, v)) ; 
         moveDirection = transform.position + direction; // new Vector3(velocity.x, m_Rigid.velocity.y, velocity.z);
         /*
@@ -371,17 +384,10 @@ public class CharacterInputController
         MoveTo(moveDirection, curAccel, 0.7f, true);
         if (rotateSpeed != 0 && direction.magnitude != 0)
         {
-            RotateToDirection(moveDirection, curRotateSpeed * 10 );
+            RotateToDirection(moveDirection, curRotateSpeed * 10);
         }
-            
+
         ManageSpeed(curDecel, maxSpeed + movingObjSpeed.magnitude, true);
-        //set animation values
-        if (animator)
-        {
-            //animator.SetFloat("DistanceToTarget", characterMotor.DistanceToTarget);
-            animator.SetBool("Grounded", grounded);
-            animator.SetFloat("YVelocity", GetComponent<Rigidbody>().velocity.y);
-        }
     }
 
     //prevents rigidbody from sliding down slight slopes (read notes in characterMotor class for more info on friction)
@@ -401,6 +407,7 @@ public class CharacterInputController
 
     //returns whether we are on the ground or not
     //also: bouncing on enemies, keeping player on moving platforms and slope checking
+
     private bool IsGrounded()
     {
         //get distance to ground, from centre of collider (where floorcheckers should be)
@@ -424,12 +431,11 @@ public class CharacterInputController
                     //enemy bouncing
                     if (hit.transform.tag == "Enemy" && rigid.velocity.y < 0)
                     {
-                        /*
-                        enemyAI = hit.transform.GetComponent<EnemyAI>();
-                        enemyAI.BouncedOn();
-                        onEnemyBounce++;
-                        dealDamage.Attack(hit.transform.gameObject, 1, 0f, 0f);
-                        */
+                        //enemyAI = hit.transform.GetComponent<EnemyAI>();
+                        //enemyAI.BouncedOn();
+                        //onEnemyBounce++;
+                        //dealDamage.Attack(hit.transform.gameObject, 1, 0f, 0f);
+                        
                     }
                     else
                         onEnemyBounce = 0;

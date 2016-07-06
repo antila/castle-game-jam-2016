@@ -31,10 +31,6 @@ public class DragRigidbody : MonoBehaviour
     {
         if (jointTrans == null)
         {
-            
-
-            var ray = Physics.Raycast(playerTransform.position, transform.forward);
-            var up = playerTransform.up;
             Vector3 rayFromPosition = playerTransform.position;
             rayFromPosition = rayFromPosition + (playerTransform.up * 1);
 
