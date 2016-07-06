@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputNew;
 using System.Collections;
 
 public class WinScreen : MonoBehaviour {
@@ -31,11 +32,15 @@ public class WinScreen : MonoBehaviour {
 
     public void ShowWinner(MultiplayerManager.PlayerInfo winner) {
         var playerCameras = FindObjectsOfType<Camera>();
-        playerCamera = playerCameras[1];
+        playerCamera = playerCameras[0];
         originalDepth = playerCamera.depth;
         playerCamera.depth = 9f;
         originalCameraRect = playerCamera.rect;
         currentCameraRect = originalCameraRect;
         showingWinner = true;
+
+        var mouse = Mouse.current;
+        if (mouse != null)
+            mouse.cursor.isLocked = false;
     }
 }
