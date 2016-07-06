@@ -15,7 +15,13 @@ public class MultiplayerManager : MonoBehaviour
     public GameObject cameraPrefab;
     public bool isStartScene = false;
 
-	[Space]
+    public List<GameObject> playerPrefabs = new List<GameObject>();
+    private GameObject player1Prefab;
+    private GameObject player2Prefab;
+    private GameObject player3Prefab;
+    private GameObject player4Prefab;
+
+    [Space]
 
 	public ButtonAction joinAction;
 	public ButtonAction leaveAction;
@@ -68,6 +74,10 @@ public class MultiplayerManager : MonoBehaviour
 		joinAction.Bind(globalHandle);
 		leaveAction.Bind(globalHandle);
 
+        playerPrefabs.Add((GameObject)Resources.Load("Blue_Wizard"));
+        playerPrefabs.Add((GameObject)Resources.Load("Red_Wizard"));
+        playerPrefabs.Add((GameObject)Resources.Load("Yellow_Wizard"));
+        playerPrefabs.Add((GameObject)Resources.Load("Green_Wizard"));
     }
 
     public void Update()
@@ -186,10 +196,23 @@ public class MultiplayerManager : MonoBehaviour
 			Transform spawnTransform = spawnPositions[i % spawnPositions.Count];
 			var player = (PlayerInput)Instantiate(playerPrefab, spawnTransform.position, spawnTransform.rotation);
 			player.handle = playerInfo.playerHandle;
+            
 
             var camera = (GameObject)Instantiate(cameraPrefab, spawnTransform.position, spawnTransform.rotation);
             camera.GetComponent<LookAtCamera>().targetPlayer = player;
+            //camera.GetComponent<LookatTarget>().target = player;
             camera.GetComponent<FollowCamera>().targetPlayer = player;
+
+            camera.transform.position += Vector3.up * 2;
+            camera.transform.position += -Vector3.forward * 5;
+
+            player.cameraHandle = camera;
+
+            Debug.Log(player1Prefab);
+            GameObject playerModel = (GameObject)Instantiate(playerPrefabs[i], spawnTransform.position, spawnTransform.rotation);
+            playerModel.transform.parent = player.gameObject.transform;
+
+
         }
 		
 		if (onStartGame != null)
@@ -198,3 +221,4 @@ public class MultiplayerManager : MonoBehaviour
 		gameObject.SetActive(false);
 	}
 }
+

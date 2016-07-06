@@ -2,36 +2,81 @@
 using System.Collections;
 using UnityEngine.InputNew;
 
-public class FollowCamera : MonoBehaviour {
+public class FollowCamera : MonoBehaviour
+{
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
+    // The target we are following
     public PlayerInput targetPlayer;
+    // The distance in the x-z plane to the target
+    public float distance = 4;
+    // the height we want the camera to be above the target
+    public float height = 6;
+    // How much we 
+    public float heightDamping = 2;
+    public float rotationDamping = 16f;
+
 
     void LateUpdate()
     {
-        if (targetPlayer)
+        // Early out if we don't have a target
+        if (!targetPlayer)
+            return;
+
+        Transform target = targetPlayer.gameObject.transform;
+
+        var pos = new Vector3();
+        /*
+        transform.position = target.position;
+        transform.position += Vector3.forward * 5;
+        transform.position += Vector3.up * 3;
+        */
+
+
+        //if (Vector3.Distance(target.position, transform.position) > 10f)
+        //{
+            // Calculate the current rotation angles
+            var wantedRotationAngle = target.eulerAngles.y;
+            float wantedHeight = target.position.y + height;
+
+            var currentRotationAngle = transform.eulerAngles.y;
+            var currentHeight = transform.position.y;
+
+            // Damp the rotation around the y-axis
+            currentRotationAngle = Mathf.LerpAngle(currentRotationAngle, wantedRotationAngle, rotationDamping * Time.deltaTime);
+
+            // Damp the height
+            currentHeight = Mathf.Lerp(currentHeight, wantedHeight, heightDamping * Time.deltaTime);
+
+            // Convert the angle into a rotation
+            Quaternion currentRotation = Quaternion.Euler(0, currentRotationAngle, 0);
+
+        // Set the position of the camera on the x-z plane to:
+        // distance meters behind the target
+
+            Vector3 lookAt = new Vector3(target.position.x, currentHeight, target.position.z);
+
+        if (Vector3.Distance(target.position, transform.position) < 10f)
         {
-            var target = targetPlayer.gameObject;
-
-            Vector3 velocity = Vector3.zero;
-            Vector3 forward = target.transform.forward * 5.0f;
-            Vector3 up = -target.transform.up * 2.0f;
-            Vector3 needPos = target.transform.position - forward - up;
-            transform.position = Vector3.SmoothDamp(transform.position, needPos,
-                                                    ref velocity, 0.05f);
-
-            //Look at and dampen the rotation
-            //Quaternion rotation = Quaternion.LookRotation(target.position - _myTransform.position);
-            //_myTransform.rotation = Quaternion.Slerp(_myTransform.rotation, rotation, Time.deltaTime * damping);
+            lookAt.x = transform.position.x;
+            lookAt.z = transform.position.z;
         }
+
+        float speed  = 7f;
+            var step = speed * Time.deltaTime;
+            transform.position = Vector3.MoveTowards(transform.position, lookAt, step); // target.position;
+            //transform.position -= currentRotation * Vector3.forward * distance;
+
+        
+
+        // Move our position a step closer to the target.
+        //transform.position = 
+
+        // Set the height of the camera
+        //transform.position = new Vector3(transform.position.x, currentHeight, transform.position.z);
+            // Always look at the target
+            //transform.LookAt(transform.position + transform.forward * 10);
+        //}
+        
     }
+    
 }

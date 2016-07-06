@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &109952
 GameObject:
   m_ObjectHideFlags: 1
@@ -123,7 +123,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &129762
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,7 +134,6 @@ GameObject:
   - 4: {fileID: 451116}
   - 33: {fileID: 3375056}
   - 136: {fileID: 13646672}
-  - 23: {fileID: 2343050}
   - 54: {fileID: 5424980}
   - 114: {fileID: 11461774}
   - 114: {fileID: 11440290}
@@ -348,7 +347,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 129762}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 30.228218, y: 10.623989, z: -10.187842}
+  m_LocalPosition: {x: 15.167788, y: 1.832, z: 3.1431673}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -389,7 +388,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 155038}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
@@ -435,32 +434,6 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!23 &2343050
-MeshRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 129762}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
-  m_ProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 1
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!33 &3334708
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -489,12 +462,12 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 129762}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
+  m_Mass: 3
+  m_Drag: 0.2
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!114 &11401078
@@ -699,7 +672,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 129762}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 84d2c07be54604d7d9acbaf6555da85a, type: 3}
   m_Name: 
@@ -849,6 +822,30 @@ MonoBehaviour:
   sizer: {fileID: 11481002}
   controlsText: {fileID: 11439398}
   rebinder: {fileID: 0}
+  DistanceToTarget: 0
+  currentSpeed: {x: 0, y: 0, z: 0}
+  sidescroller: 0
+  mainCam: {fileID: 0}
+  floorChecks: {fileID: 0}
+  animator: {fileID: 0}
+  jumpSound: {fileID: 0}
+  landSound: {fileID: 0}
+  accel: 70
+  airAccel: 18
+  decel: 7.6
+  airDecel: 1.1
+  rotateSpeed: 0.7
+  airRotateSpeed: 0.4
+  maxSpeed: 9
+  slopeLimit: 40
+  slideAmount: 35
+  movingPlatformFriction: 7.7
+  jumpForce: {x: 0, y: 13, z: 0}
+  secondJumpForce: {x: 0, y: 13, z: 0}
+  thirdJumpForce: {x: 0, y: 13, z: 0}
+  jumpDelay: 0.1
+  jumpLeniancy: 0.17
+  onEnemyBounce: 0
 --- !u!114 &11463714
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -924,7 +921,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 129762}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f22cc6fa9191a1d4c8e875df5622d5f1, type: 3}
   m_Name: 
@@ -942,7 +939,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4fbb736be73a4e8b89a33bf81127c06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerInput: {fileID: 11440290}
+  playerInput: {fileID: 0}
   menu: {fileID: 193818}
   slider: {fileID: 11459234}
 --- !u!114 &11481914
@@ -1005,13 +1002,13 @@ CapsuleCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 129762}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 999898e20b6e38d489a5541b7593220d, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.8
   m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!222 &22224822
 CanvasRenderer:
   m_ObjectHideFlags: 1

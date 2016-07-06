@@ -36,29 +36,11 @@ public class LookAtCamera : MonoBehaviour {
         if (targetPlayer)
         {
             var target = targetPlayer.gameObject.transform;
-            if (smooth)
-            {
 
-                //Look at and dampen the rotation
-                Quaternion rotation = Quaternion.LookRotation(target.position - _myTransform.position);
-                _myTransform.rotation = Quaternion.Slerp(_myTransform.rotation, rotation, Time.deltaTime * damping);
-            }
-            else
-            { //Just look at
-                _myTransform.rotation = Quaternion.FromToRotation(-Vector3.forward, (new Vector3(target.position.x, target.position.y, target.position.z) - _myTransform.position).normalized);
-
-                float distance = Vector3.Distance(target.position, _myTransform.position);
-
-                if (distance < minDistance)
-                {
-                    alpha = Mathf.Lerp(alpha, 0.0f, Time.deltaTime * 2.0f);
-                }
-                else
-                {
-                    alpha = Mathf.Lerp(alpha, 1.0f, Time.deltaTime * 2.0f);
-
-                }
-            }
+            //Look at and dampen the rotation
+            Quaternion rotation = Quaternion.LookRotation(target.position - _myTransform.position + Vector3.up * 2);
+            _myTransform.rotation = Quaternion.Slerp(_myTransform.rotation, rotation, Time.deltaTime * damping);
+            
         }
     }
 }

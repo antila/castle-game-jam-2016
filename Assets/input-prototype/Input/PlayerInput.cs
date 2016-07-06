@@ -15,8 +15,9 @@ namespace UnityEngine.InputNew
 		public List<ActionMapSlot> actionMaps = new List<ActionMapSlot>();
 
 		public PlayerHandle handle { get; set; }
+        public GameObject cameraHandle { get; set; }
 
-		void Awake()
+        void Awake()
 		{
 			if (autoAssignGlobal)
 			{
