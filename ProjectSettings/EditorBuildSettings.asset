@@ -6,9 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Singleplayer.unity
-  - enabled: 1
     path: Assets/Scenes/Start.unity
+  - enabled: 1
+    path: Assets/Scenes/Singleplayer.unity
   - enabled: 1
     path: Assets/Scenes/TestScenes/EriksTest.unity
   - enabled: 1
