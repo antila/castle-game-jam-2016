@@ -2183,6 +2183,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ab84ddad3a592e40bdb0dc64546b431, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerCamera: {fileID: 0}
+  originalDepth: 0
+  originalCameraRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
+  currentCameraRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
+  showingWinner: 0
 --- !u!1 &2030235060
 GameObject:
   m_ObjectHideFlags: 0
