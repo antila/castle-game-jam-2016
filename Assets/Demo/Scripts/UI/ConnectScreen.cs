@@ -8,12 +8,17 @@ public class ConnectScreen : MonoBehaviour {
     public MultiplayerManager Multiplayer;
     public GameObject NextScreen;
 
-    public List<Image> statusImages = new List<Image>();
+    [Serializable]
+    public class StatusImages {
+        public Image image;
+        public Color color;
+        public Sprite inactive;
+        public Sprite active;
+        public Sprite ready;
+    }
 
-    // Use this for initialization
-    void Start () {
-	    
-	}
+    public List<StatusImages> statusImages = new List<StatusImages>();
+
     public void ShowGameScreen () {
         NextScreen.SetActive(true);
         this.gameObject.SetActive(false);
@@ -24,17 +29,20 @@ public class ConnectScreen : MonoBehaviour {
 
             if (i <= Multiplayer.players.Count - 1) {
 
-                MultiplayerManager.PlayerInfo player = Multiplayer.players[i];
+                var player = Multiplayer.players[i];
 
                 if (player.ready) {
-                    statusImages[i].color = Color.green;
+                    statusImages[i].image.sprite = statusImages[i].ready;
+                    statusImages[i].image.color = Color.green;
                 } else {
-                    statusImages[i].color = Color.yellow;
+                    statusImages[i].image.sprite = statusImages[i].active;
+                    statusImages[i].image.color = statusImages[i].color;
                 }
 
             } else {
-                statusImages[i].color = Color.black;
+                statusImages[i].image.sprite = statusImages[i].inactive;
+                statusImages[i].image.color = Color.black;
             }
         }
-	}
+    }
 }
