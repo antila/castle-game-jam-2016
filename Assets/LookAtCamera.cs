@@ -11,7 +11,6 @@ public class LookAtCamera : MonoBehaviour {
     public string property = "";
 
     private Color color;
-    private float alpha = 1.0f;
     private Transform _myTransform;
 
     void Awake()

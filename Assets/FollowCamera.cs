@@ -24,7 +24,6 @@ public class FollowCamera : MonoBehaviour
 
         Transform target = targetPlayer.gameObject.transform;
 
-        var pos = new Vector3();
         /*
         transform.position = target.position;
         transform.position += Vector3.forward * 5;
@@ -48,7 +47,7 @@ public class FollowCamera : MonoBehaviour
             currentHeight = Mathf.Lerp(currentHeight, wantedHeight, heightDamping * Time.deltaTime);
 
             // Convert the angle into a rotation
-            Quaternion currentRotation = Quaternion.Euler(0, currentRotationAngle, 0);
+            //Quaternion currentRotation = Quaternion.Euler(0, currentRotationAngle, 0);
 
         // Set the position of the camera on the x-z plane to:
         // distance meters behind the target

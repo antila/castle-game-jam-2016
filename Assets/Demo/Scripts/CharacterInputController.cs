@@ -350,9 +350,7 @@ public class CharacterInputController
 
         //direction = (screenMovementForward * v) + (screenMovementRight * h);
         //moveDirection = transform.position + direction;
-
-        Debug.Log(curAccel);
-
+        
         direction = playerInput.cameraHandle.transform.TransformDirection(new Vector3(h, 0, v)) ; 
         moveDirection = transform.position + direction; // new Vector3(velocity.x, m_Rigid.velocity.y, velocity.z);
         /*
