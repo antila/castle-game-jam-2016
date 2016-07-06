@@ -12,7 +12,7 @@ public class WinScreen : MonoBehaviour {
 
     // Use this for initialization
     void OnEnable() {
-        GetComponentInChildren<Button>().Select();
+        StartCoroutine(ReleaseControls());
     }
     void OnDisable()
     {
@@ -30,6 +30,17 @@ public class WinScreen : MonoBehaviour {
         }
     }
 
+    IEnumerator ReleaseControls() {
+
+        yield return new WaitForSeconds(1);
+        GetComponentInChildren<Button>().Select();
+
+        var mouse = Mouse.current;
+        if (mouse != null)
+            mouse.cursor.isLocked = false;
+
+    }
+
     public void ShowWinner(MultiplayerManager.PlayerInfo winner) {
         var playerCameras = FindObjectsOfType<Camera>();
         playerCamera = playerCameras[0];
@@ -38,9 +49,5 @@ public class WinScreen : MonoBehaviour {
         originalCameraRect = playerCamera.rect;
         currentCameraRect = originalCameraRect;
         showingWinner = true;
-
-        var mouse = Mouse.current;
-        if (mouse != null)
-            mouse.cursor.isLocked = false;
     }
 }

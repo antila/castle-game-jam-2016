@@ -10,6 +10,7 @@ public class GlobalControl : MonoBehaviour {
     MenuActions m_Actions;
 
     public MultiplayerManager globalMultiplayerManager;
+    public ScreenManager screenManager;
     public WinScreen winScreen;
     public PlayerInput[] playerInputs;
     public MultiplayerManager.PlayerInfo[] players;
@@ -40,6 +41,8 @@ public class GlobalControl : MonoBehaviour {
         for (int i = 0; i < playerInputs.Length; i++) {
             playerInputs[i].GetActions<MenuActions>().active = true;
         }
-        winScreen.gameObject.SetActive(true);
+
+        screenManager.ChangeScreen(winScreen.GetComponent<UIScreen>());
+
     }
 }

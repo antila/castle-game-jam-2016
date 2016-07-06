@@ -58,6 +58,7 @@ public class MultiplayerManager : MonoBehaviour
 
     PlayerHandle globalHandle;
     ConnectScreen connectScreen = null;
+    bool gameStarted = false;
 
     public void Start()
 	{
@@ -143,7 +144,8 @@ public class MultiplayerManager : MonoBehaviour
 				readyCount++;
 		}
 
-        if (isStartScene && connectScreen && readyCount >= 1 && (players.Count - readyCount) == 0) {
+        if (!gameStarted && isStartScene && connectScreen && readyCount >= 1 && (players.Count - readyCount) == 0) {
+            gameStarted = true;
             connectScreen.ShowGameScreen();
         } else if (!isStartScene && readyCount >= 1 && (players.Count - readyCount) == 0) {
             StartGame();

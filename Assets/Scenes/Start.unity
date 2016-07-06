@@ -97,6 +97,7 @@ GameObject:
   - 223: {fileID: 243363752}
   - 114: {fileID: 243363751}
   - 114: {fileID: 243363750}
+  - 114: {fileID: 243363754}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -176,6 +177,7 @@ RectTransform:
   - {fileID: 461508222}
   - {fileID: 1906490030}
   - {fileID: 1071695786}
+  - {fileID: 1069478603}
   m_Father: {fileID: 1657448343}
   m_RootOrder: 3
   m_AnchorMin: {x: 0, y: 0}
@@ -183,6 +185,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &243363754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 243363749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcdf75620c294d542b79848f3b9fd621, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  previousScreen: {fileID: 0}
+  activeScreen: {fileID: 826481122}
 --- !u!1 &314104354
 GameObject:
   m_ObjectHideFlags: 0
@@ -214,6 +229,7 @@ MonoBehaviour:
   playerPrefab: {fileID: 11440290, guid: fb8afa4e7f37746b191b1080b74a8737, type: 2}
   cameraPrefab: {fileID: 183230, guid: e7ca8efc4d8c2314ca0c961a91fc9876, type: 2}
   isStartScene: 1
+  playerPrefabs: []
   joinAction:
     action: {fileID: 11419910, guid: 24548a596fd7f47dfa0d33e0d38d0dbd, type: 2}
   leaveAction:
@@ -283,6 +299,7 @@ GameObject:
   m_Component:
   - 224: {fileID: 461508222}
   - 114: {fileID: 461508223}
+  - 114: {fileID: 461508224}
   m_Layer: 5
   m_Name: GameScreen
   m_TagString: Untagged
@@ -324,6 +341,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectedGame: {fileID: 867569648}
+--- !u!114 &461508224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 461508221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56fb145d3e66be47810bb86dc465416, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitTime: 0.3
+  originalScale: {x: 0, y: 0, z: 0}
+  disabledScale: {x: 0, y: 0, z: 0}
+  enabledScale: {x: 1, y: 1, z: 1}
 --- !u!1 &488605054
 GameObject:
   m_ObjectHideFlags: 0
@@ -443,12 +475,12 @@ MonoBehaviour:
           m_StringArgument: EriksTest
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 461508221}
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 243363754}
+        m_MethodName: ChangeScreen
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1069478604}
+          m_ObjectArgumentAssemblyTypeName: UIScreen, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -611,7 +643,6 @@ GameObject:
   - 222: {fileID: 790321616}
   - 114: {fileID: 790321615}
   - 114: {fileID: 790321614}
-  - 114: {fileID: 790321617}
   m_Layer: 5
   m_Name: Options
   m_TagString: Untagged
@@ -675,7 +706,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 790321615}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 243363754}
+        m_MethodName: ChangeScreen
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1071695787}
+          m_ObjectArgumentAssemblyTypeName: UIScreen, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &790321615
@@ -711,47 +753,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 790321612}
---- !u!114 &790321617
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 790321612}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 16
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1071695785}
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
-        - m_Target: {fileID: 826481120}
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  delegates: []
 --- !u!1 &822080403
 GameObject:
   m_ObjectHideFlags: 0
@@ -792,6 +793,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 224: {fileID: 826481121}
+  - 114: {fileID: 826481122}
   m_Layer: 5
   m_Name: StartScreen
   m_TagString: Untagged
@@ -820,6 +822,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &826481122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 826481120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56fb145d3e66be47810bb86dc465416, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitTime: 0.3
+  originalScale: {x: 1, y: 1, z: 1}
+  disabledScale: {x: 0, y: 0, z: 0}
+  enabledScale: {x: 1, y: 1, z: 1}
 --- !u!1 &835027089
 GameObject:
   m_ObjectHideFlags: 0
@@ -1075,12 +1092,12 @@ MonoBehaviour:
           m_StringArgument: EriksTest
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 461508221}
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 243363754}
+        m_MethodName: ChangeScreen
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1069478604}
+          m_ObjectArgumentAssemblyTypeName: UIScreen, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1207,12 +1224,12 @@ MonoBehaviour:
           m_StringArgument: JimTest
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 461508221}
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 243363754}
+        m_MethodName: ChangeScreen
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1069478604}
+          m_ObjectArgumentAssemblyTypeName: UIScreen, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1339,12 +1356,12 @@ MonoBehaviour:
           m_StringArgument: SaraTest
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 461508221}
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 243363754}
+        m_MethodName: ChangeScreen
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1069478604}
+          m_ObjectArgumentAssemblyTypeName: UIScreen, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1495,23 +1512,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 461508221}
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 243363754}
+        m_MethodName: ChangeScreen
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1906490029}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 461508224}
+          m_ObjectArgumentAssemblyTypeName: UIScreen, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1552,6 +1558,55 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1068158409}
+--- !u!1 &1069478602
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 1069478603}
+  - 114: {fileID: 1069478604}
+  m_Layer: 5
+  m_Name: HUD
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1069478603
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1069478602}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 243363753}
+  m_RootOrder: 5
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1069478604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1069478602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56fb145d3e66be47810bb86dc465416, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitTime: 0.2
+  originalScale: {x: 0, y: 0, z: 0}
+  disabledScale: {x: 0, y: 0, z: 0}
+  enabledScale: {x: 1, y: 1, z: 1}
 --- !u!1 &1071695785
 GameObject:
   m_ObjectHideFlags: 0
@@ -1560,6 +1615,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 224: {fileID: 1071695786}
+  - 114: {fileID: 1071695787}
   m_Layer: 5
   m_Name: OptionsScreen
   m_TagString: Untagged
@@ -1585,6 +1641,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1071695787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1071695785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56fb145d3e66be47810bb86dc465416, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitTime: 0
+  originalScale: {x: 0, y: 0, z: 0}
+  disabledScale: {x: 0, y: 0, z: 0}
+  enabledScale: {x: 1, y: 1, z: 1}
 --- !u!1 &1147399577
 GameObject:
   m_ObjectHideFlags: 0
@@ -1815,23 +1886,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2030235060}
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 243363754}
+        m_MethodName: ChangeScreen
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 826481120}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 2030235063}
+          m_ObjectArgumentAssemblyTypeName: UIScreen, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2038,6 +2098,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   globalMultiplayerManager: {fileID: 314104355}
+  screenManager: {fileID: 243363754}
   winScreen: {fileID: 1906490031}
   playerInputs:
   - {fileID: 0}
@@ -2145,6 +2206,7 @@ GameObject:
   m_Component:
   - 224: {fileID: 1906490030}
   - 114: {fileID: 1906490031}
+  - 114: {fileID: 1906490032}
   m_Layer: 5
   m_Name: WinScreen
   m_TagString: Untagged
@@ -2198,6 +2260,21 @@ MonoBehaviour:
     width: 0
     height: 0
   showingWinner: 0
+--- !u!114 &1906490032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1906490029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56fb145d3e66be47810bb86dc465416, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitTime: 0.3
+  originalScale: {x: 0, y: 0, z: 0}
+  disabledScale: {x: 0, y: 0, z: 0}
+  enabledScale: {x: 1, y: 1, z: 1}
 --- !u!1 &2030235060
 GameObject:
   m_ObjectHideFlags: 0
@@ -2207,6 +2284,7 @@ GameObject:
   m_Component:
   - 224: {fileID: 2030235061}
   - 114: {fileID: 2030235062}
+  - 114: {fileID: 2030235063}
   m_Layer: 5
   m_Name: ConnectScreen
   m_TagString: Untagged
@@ -2248,7 +2326,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 314104355}
-  NextScreen: {fileID: 461508221}
+  screenManager: {fileID: 243363754}
+  nextScreen: {fileID: 461508224}
   statusImages:
   - image: {fileID: 963977698}
     color: {r: 0.29803923, g: 0.5882353, b: 0.35686275, a: 1}
@@ -2270,6 +2349,21 @@ MonoBehaviour:
     inactive: {fileID: 0}
     active: {fileID: 0}
     ready: {fileID: 0}
+--- !u!114 &2030235063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2030235060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56fb145d3e66be47810bb86dc465416, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitTime: 0.2
+  originalScale: {x: 0, y: 0, z: 0}
+  disabledScale: {x: 0, y: 0, z: 0}
+  enabledScale: {x: 1, y: 1, z: 1}
 --- !u!1 &2060930054
 GameObject:
   m_ObjectHideFlags: 0
