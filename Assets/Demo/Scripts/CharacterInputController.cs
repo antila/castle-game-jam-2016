@@ -10,7 +10,7 @@ using UnityEngine.Serialization;
 public class CharacterInputController
 	: MonoBehaviour
 {
-	FirstPersonControls m_MapInput;
+	public FirstPersonControls m_MapInput;
 	Rigidbody m_Rigid;
 	Vector2 m_Rotation = Vector2.zero;
 
@@ -263,7 +263,7 @@ public class CharacterInputController
         if (ignoreY)
             relativePos.y = 0;
 
-        Debug.DrawRay(destination, relativePos, Color.red);
+        //Debug.DrawRay(destination, relativePos, Color.red);
 
         DistanceToTarget = relativePos.magnitude;
         if (DistanceToTarget <= stopDistance)
@@ -282,7 +282,7 @@ public class CharacterInputController
         lookDir.y = 0;
 
         //Debug.DrawRay(m_Rigid.position, m_Rigid.velocity, Color.blue);
-        Debug.DrawRay(transform.position, rigid.velocity, Color.green);
+        //Debug.DrawRay(transform.position, rigid.velocity, Color.green);
 
         Vector3 newDir = lookDir - characterPos;
         Quaternion dirQ = Quaternion.LookRotation(newDir);

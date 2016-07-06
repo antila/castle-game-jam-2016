@@ -78,9 +78,7 @@ public class FollowCamera : MonoBehaviour
         var step = speed * Time.deltaTime;
         
         transform.position = Vector3.MoveTowards(transform.position, lookAt, step); // target.position;
-       
 
-        Debug.Log("go");
         //transform.position -= currentRotation * Vector3.forward * distance;
 
         // Move our position a step closer to the target.
