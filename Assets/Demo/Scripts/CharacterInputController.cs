@@ -77,7 +77,7 @@ public class CharacterInputController
     private float airPressTime, groundedCount, curAccel, curDecel, curRotateSpeed, slope;
     private Vector3 direction, moveDirection, screenMovementForward, screenMovementRight, movingObjSpeed;
 
-    private CharacterMotor characterMotor;
+    //private CharacterMotor characterMotor;
     private Rigidbody rigid;
     private AudioSource aSource;
 
@@ -378,7 +378,7 @@ public class CharacterInputController
         //set animation values
         if (animator)
         {
-            animator.SetFloat("DistanceToTarget", characterMotor.DistanceToTarget);
+            //animator.SetFloat("DistanceToTarget", characterMotor.DistanceToTarget);
             animator.SetBool("Grounded", grounded);
             animator.SetFloat("YVelocity", GetComponent<Rigidbody>().velocity.y);
         }
