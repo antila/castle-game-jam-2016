@@ -814,7 +814,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerInput: {fileID: 11440290}
   head: {fileID: 484432}
-  moveSpeed: 15
   projectile: {fileID: 171512, guid: 35bb1b2b246f2924c9e37e30f454c7ee, type: 2}
   timeBetweenShots: 0.1
   jumpPower: 300

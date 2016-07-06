@@ -142,9 +142,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 844e8803ab58d544fa9e891f3d8f40ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damping: 6
+  damping: 60
   smooth: 1
-  minDistance: 10
+  minDistance: 5
   property: 
   targetPlayer: {fileID: 0}
 --- !u!114 &11482906
@@ -179,8 +179,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetPlayer: {fileID: 0}
-  distance: 5
-  height: 1.5
+  distance: 4
+  height: 4
   heightDamping: 2
   rotationDamping: 16
 --- !u!124 &12490654

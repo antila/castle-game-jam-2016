@@ -293,6 +293,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 401882}
+  - 95: {fileID: 9538936}
   m_Layer: 0
   m_Name: Blue_Wizard
   m_TagString: Untagged
@@ -308,7 +309,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 482074}
-  - 95: {fileID: 9546936}
   m_Layer: 0
   m_Name: Blue_Wizard
   m_TagString: Untagged
@@ -814,17 +814,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 407598}
   m_RootOrder: 0
---- !u!95 &9546936
+--- !u!95 &9538936
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 163708}
+  m_GameObject: {fileID: 159294}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 40d9e9accbaf32b45833b5fd504e92bc, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 1
+  m_Avatar: {fileID: 9000000, guid: 0c817f44e10af544991397065bfebcb5, type: 3}
+  m_Controller: {fileID: 9100000, guid: 0a6cc82106af877429aa680a17101833, type: 2}
+  m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
