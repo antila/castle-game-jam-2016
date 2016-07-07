@@ -65,7 +65,7 @@ public class CharacterInputController
     public Vector3 secondJumpForce = new Vector3(0, 13, 0); //the force of a 2nd consecutive jump
     public Vector3 thirdJumpForce = new Vector3(0, 13, 0);  //the force of a 3rd consecutive jump
     public float jumpDelay = 0.1f;                          //how fast you need to jump after hitting the ground, to do the next type of jump
-    public float jumpLeniancy = 0.17f;                      //how early before hitting the ground you can press jump, and still have it work
+    public float jumpLeniancy = 0.1f;                      //how early before hitting the ground you can press jump, and still have it work
     [HideInInspector]
     public int onEnemyBounce;
 
@@ -322,9 +322,10 @@ public class CharacterInputController
         foreach (Transform check in floorCheckers)
         {
             RaycastHit hit;
+
             if (Physics.Raycast(check.position, Vector3.down, out hit, dist + 0.05f))
             {
-                if (!hit.transform.GetComponent<Collider>().isTrigger)
+                if (hit.transform.GetComponent<Collider>().isTrigger == false)
                 {
                     //slope control
                     slope = Vector3.Angle(hit.normal, Vector3.up);
@@ -370,9 +371,7 @@ public class CharacterInputController
     //jumping
     private void JumpCalculations()
     {
-        //keep how long we have been on the ground
-        groundedCount = (grounded) ? groundedCount += Time.deltaTime : 0f;
-
+        //Debug.Log(grounded);
         //play landing sound
         /*
         if (groundedCount < 0.25 && groundedCount != 0 && !GetComponent<AudioSource>().isPlaying && landSound && GetComponent<Rigidbody>().velocity.y < 1)
@@ -382,28 +381,13 @@ public class CharacterInputController
             aSource.Play();
         }
         */
-        //if we press jump in the air, save the time
-        if (Input.GetButtonDown("Jump") && !grounded)
-            airPressTime = Time.time;
 
         //if were on ground within slope limit
         if (grounded && slope < slopeLimit)
         {
             //and we press jump, or we pressed jump justt before hitting the ground
-            if (m_MapInput.jump.isHeld || airPressTime + jumpLeniancy > Time.time)
-            {
-                //increment our jump type if we haven't been on the ground for long
-                onJump = (groundedCount < jumpDelay) ? Mathf.Min(2, onJump + 1) : 0;
-                //execute the correct jump (like in mario64, jumping 3 times quickly will do higher jumps)
-                if (onJump == 0)
-                    Jump(jumpForce);
-                else if (onJump == 1)
-                    Jump(secondJumpForce);
-                else if (onJump == 2)
-                {
-                    Jump(thirdJumpForce);
-                    onJump--;
-                }
+            if (m_MapInput.jump.isHeld) { //|| airPressTime + jumpLeniancy > Time.time) {
+                Jump(jumpForce);
             }
         }
     }

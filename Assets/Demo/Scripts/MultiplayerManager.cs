@@ -75,6 +75,10 @@ public class MultiplayerManager : MonoBehaviour
 		joinAction.Bind(globalHandle);
 		leaveAction.Bind(globalHandle);
 
+        
+
+        
+
         playerPrefabs.Add((GameObject)Resources.Load("Blue_Wizard"));
         playerPrefabs.Add((GameObject)Resources.Load("Red_Wizard"));
         playerPrefabs.Add((GameObject)Resources.Load("Yellow_Wizard"));
@@ -83,6 +87,11 @@ public class MultiplayerManager : MonoBehaviour
 
     public void Update()
 	{
+        if (globalHandle.GetActions<MenuActions>().move.vector2.x != 0)
+        {
+            Screen.lockCursor = true;
+        }
+
         connectScreen = (ConnectScreen)FindObjectOfType(typeof(ConnectScreen));
         // Listen to if the join button was pressed on a yet unassigned device.
         if ((joinAction.control.wasJustPressed && !isStartScene) || (joinAction.control.wasJustPressed && isStartScene && connectScreen && connectScreen.isActiveAndEnabled))
