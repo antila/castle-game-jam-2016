@@ -1,10 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
+using DG.Tweening;
 
 public class Scaler : MonoBehaviour {
 
     public Vector3 startScale;
     public Vector3 endScale;
+    public Ease scaleEasing = Ease.InOutQuint;
+    public float scaleTime = 2f;
+
 
     void Reset() {
         startScale = transform.localScale;
@@ -13,11 +17,10 @@ public class Scaler : MonoBehaviour {
 
     // Use this for initialization
     public void Scale (bool forward) {
-        Debug.LogError(forward);
         if (forward) {
-            transform.localScale = endScale;
+            transform.DOScale(endScale, scaleTime).SetEase(scaleEasing);
         } else {
-            transform.localScale = startScale;
+            transform.DOScale(startScale, scaleTime).SetEase(scaleEasing);
         }
     }
 	
