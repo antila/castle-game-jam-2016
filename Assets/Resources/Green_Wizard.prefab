@@ -354,7 +354,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 458338}
-  - 111: {fileID: 11180060}
+  - 95: {fileID: 9514862}
   m_Layer: 0
   m_Name: Green_Wizard
   m_TagString: Untagged
@@ -785,22 +785,23 @@ Transform:
   - {fileID: 429364}
   m_Father: {fileID: 439506}
   m_RootOrder: 0
---- !u!111 &11180060
-Animation:
+--- !u!95 &9514862
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 193614}
   m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400002, guid: 2b81fc5bbb671c94db2d772e3b2cbed2, type: 3}
-  m_Animations:
-  - {fileID: 7400000, guid: 2b81fc5bbb671c94db2d772e3b2cbed2, type: 3}
-  - {fileID: 7400002, guid: 2b81fc5bbb671c94db2d772e3b2cbed2, type: 3}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 1
+  m_Avatar: {fileID: 9000000, guid: 0c817f44e10af544991397065bfebcb5, type: 3}
+  m_Controller: {fileID: 9100000, guid: 0a6cc82106af877429aa680a17101833, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!137 &13798912
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
