@@ -29,7 +29,7 @@ public class Pickup : MonoBehaviour {
     private Color gizmoColor;
     private AudioSource aSource;
 
-    private PlayerMove playerMove;
+    //private PlayerMove playerMove;
     //private CharacterMotor characterMotor;	line rendererd unnecessary for now. (see line 85)
     private RigidbodyInterpolation objectDefInterpolation;
 
@@ -78,12 +78,10 @@ public class Pickup : MonoBehaviour {
                 print("'Pushable' object dropped because the 'holdingBreakForce' or 'holdingBreakTorque' was exceeded");
             }
         }
-        Debug.Log(grab);
     }
 
     void OnTriggerStay(Collider other)
     {
-        Debug.Log("OnTriggerStay");
         bool grab = false;
         if (m_MapInput != null && m_MapInput.fire != null)
         {
@@ -104,7 +102,6 @@ public class Pickup : MonoBehaviour {
 
     private void GrabPushable(Collider other)
     {
-        Debug.Log("GrabPushable");
         heldObject = other.gameObject;
         objectDefInterpolation = heldObject.GetComponent<Rigidbody>().interpolation;
         heldObject.GetComponent<Rigidbody>().interpolation = RigidbodyInterpolation.Interpolate;
@@ -113,18 +110,15 @@ public class Pickup : MonoBehaviour {
         joint.breakForce = Mathf.Infinity;
         joint.breakTorque = Mathf.Infinity;
         //stop player rotating in direction of movement, so they can face the block theyre pulling
-        playerMove.rotateSpeed = 0;
+        //playerMove.rotateSpeed = 0;
     }
 
     private void LiftPickup(Collider other)
     {
-        Debug.Log("LiftPickup");
         //get where to move item once its picked up
         Mesh otherMesh = other.GetComponent<MeshFilter>().mesh;
         holdPos = transform.position + transform.forward * holdOffset.z + transform.right * holdOffset.x + transform.up * holdOffset.y;
         holdPos.y += (GetComponent<Collider>().bounds.extents.y) + (otherMesh.bounds.extents.y);
-        Debug.Log(holdOffset);
-        Debug.Log(holdPos);
         //if there is space above our head, pick up item (this uses the defaul CheckSphere layers, you can add a layerMask parameter here if you need to though!)
         //if (!Physics.CheckSphere(holdPos, checkRadius))
         //{
@@ -153,17 +147,15 @@ public class Pickup : MonoBehaviour {
 
     private void DropPushable()
     {
-        Debug.Log("DropPushable");
         heldObject.GetComponent<Rigidbody>().interpolation = objectDefInterpolation;
         Destroy(joint);
-        playerMove.rotateSpeed = defRotateSpeed;
+        //playerMove.rotateSpeed = defRotateSpeed;
         heldObject = null;
         timeOfThrow = Time.time;
     }
 
     public void ThrowPickup()
     {
-        Debug.Log("ThrowPickup");
         if (throwSound)
         {
             aSource.volume = 1;
@@ -184,7 +176,6 @@ public class Pickup : MonoBehaviour {
     //connect player and pickup/pushable object via a physics joint
     private void AddJoint()
     {
-        Debug.Log("AddJoint");
         if (heldObject)
         {
             if (pickUpSound)
