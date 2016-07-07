@@ -23,6 +23,8 @@ public class GameModeLoaded : MonoBehaviour {
             quickStart.SetActive(false);
             globalController.GetComponentInChildren<MultiplayerManager>().spawnPositions = spawnPositions;
             globalController.globalMultiplayerManager.StartGame();
+        } else {
+            FindObjectOfType<MultiplayerManager>().spawnPositions = spawnPositions;
         }
 	}
 
