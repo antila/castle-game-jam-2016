@@ -121,6 +121,14 @@ public class Pickup : MonoBehaviour {
 
     private void LiftPickup(Collider other)
     {
+
+        var existingJoint = other.gameObject.GetComponent<FixedJoint>();
+        if (existingJoint != null)
+        {
+            other.gameObject.GetComponent<Rigidbody>().interpolation = objectDefInterpolation;
+            Destroy(existingJoint);
+        }
+  
         //get where to move item once its picked up
         Mesh otherMesh = other.GetComponent<MeshFilter>().mesh;
         holdPos = transform.position + transform.forward * holdOffset.z + transform.right * holdOffset.x + transform.up * holdOffset.y;
@@ -162,22 +170,30 @@ public class Pickup : MonoBehaviour {
 
     public void ThrowPickup(bool throwIt)
     {
+        if (joint == null)
+        {
+            // Pickup have been stolen
+            DropPushable();
+            return;
+        }
+        
         if (throwSound)
         {
             aSource.volume = 1;
             aSource.clip = throwSound;
             aSource.Play();
         }
-        Destroy(joint);
-
+        
         Rigidbody r = heldObject.GetComponent<Rigidbody>();
         r.interpolation = objectDefInterpolation;
         r.mass /= weightChange;
 
-        if (throwIt)
+        if (throwIt && joint != null)
         {
             r.AddRelativeForce(throwForce, ForceMode.VelocityChange);
         }
+
+        Destroy(joint);
 
         heldObject = null;
         timeOfThrow = Time.time;
