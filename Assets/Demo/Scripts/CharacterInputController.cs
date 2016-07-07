@@ -61,10 +61,7 @@ public class CharacterInputController
     public float movingPlatformFriction = 7.7f;             //you'll need to tweak this to get the player to stay on moving platforms properly
 
     //jumping
-    public Vector3 jumpForce = new Vector3(0, 13, 0);       //normal jump force
-    public Vector3 secondJumpForce = new Vector3(0, 13, 0); //the force of a 2nd consecutive jump
-    public Vector3 thirdJumpForce = new Vector3(0, 13, 0);  //the force of a 3rd consecutive jump
-    public float jumpDelay = 0.1f;                          //how fast you need to jump after hitting the ground, to do the next type of jump
+    public Vector3 jumpForce = new Vector3(0, 23, 0);       //normal jump force
     public float jumpLeniancy = 0.1f;                      //how early before hitting the ground you can press jump, and still have it work
     [HideInInspector]
     public int onEnemyBounce;
@@ -401,8 +398,11 @@ public class CharacterInputController
             aSource.clip = jumpSound;
             aSource.Play();
         }
+
         rigid.velocity = new Vector3(rigid.velocity.x, 0f, rigid.velocity.z);
         rigid.AddRelativeForce(jumpVelocity, ForceMode.Impulse);
         airPressTime = 0f;
+
+        grounded = false;
     }
 }

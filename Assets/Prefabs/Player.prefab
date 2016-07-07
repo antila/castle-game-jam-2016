@@ -323,7 +323,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 129762}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.533413, y: -2.565, z: 3.770362}
+  m_LocalPosition: {x: -7.321705, y: 5.4027802e-18, z: -9.732783}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -431,7 +431,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 121266}
   m_LocalRotation: {x: 0, y: -1, z: 0, w: -0.00000004371139}
-  m_LocalPosition: {x: 0.509, y: 0.69, z: 0.64}
+  m_LocalPosition: {x: 0.509, y: 0.98, z: 0.64}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
   m_Children:
@@ -561,8 +561,8 @@ MonoBehaviour:
   pickUpSound: {fileID: 0}
   throwSound: {fileID: 0}
   grabBox: {fileID: 0}
-  holdOffset: {x: 0, y: 1, z: 1}
-  throwForce: {x: 0, y: 5, z: 7}
+  holdOffset: {x: 0, y: 0.2, z: 1.1}
+  throwForce: {x: 0, y: 12, z: 18}
   rotateToBlockSpeed: 3
   checkRadius: 0.5
   weightChange: 0.3
@@ -604,7 +604,7 @@ MonoBehaviour:
   head: {fileID: 484432}
   projectile: {fileID: 171512, guid: 35bb1b2b246f2924c9e37e30f454c7ee, type: 2}
   timeBetweenShots: 0.1
-  jumpPower: 600
+  jumpPower: 6000
   drag: {fileID: 0}
   sizer: {fileID: 0}
   rebinder: {fileID: 0}
@@ -626,11 +626,8 @@ MonoBehaviour:
   slopeLimit: 40
   slideAmount: 35
   movingPlatformFriction: 7.7
-  jumpForce: {x: 0, y: 13, z: 0}
-  secondJumpForce: {x: 0, y: 13, z: 0}
-  thirdJumpForce: {x: 0, y: 13, z: 0}
-  jumpDelay: 0.1
-  jumpLeniancy: 0.17
+  jumpForce: {x: 0, y: 30, z: 0}
+  jumpLeniancy: 30
   onEnemyBounce: 0
 --- !u!114 &11479634
 MonoBehaviour:

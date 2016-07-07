@@ -11,8 +11,8 @@ public class Pickup : MonoBehaviour {
     public AudioClip pickUpSound;                               //sound when you pickup/grab an object
     public AudioClip throwSound;                                //sound when you throw an object
     public GameObject grabBox;                                  //objects inside this trigger box can be picked up by the player (think of this as your reach)
-    public Vector3 holdOffset = new Vector3(70, 70, 70);           //position offset from centre of player, to hold the box (used to be "gap" in old version)
-    public Vector3 throwForce = new Vector3(0, 10, 14);           //the throw force of the player
+    public Vector3 holdOffset = new Vector3(0, 0.2f, 1.1f);           //position offset from centre of player, to hold the box (used to be "gap" in old version)
+    public Vector3 throwForce = new Vector3(0, 12, 18);           //the throw force of the player
     public float rotateToBlockSpeed = 3;                        //how fast to face the "Pushable" object you're holding/pulling
     public float checkRadius = 0.5f;                            //how big a radius to check above the players head, to see if anything is in the way of your pickup
     [Range(0.1f, 1f)]                                           //new weight of a carried object, 1 means no change, 0.1 means 10% of its original weight													
@@ -47,12 +47,13 @@ public class Pickup : MonoBehaviour {
         }
 
         var grab = m_MapInput.fire.isHeld;
+        var jump = m_MapInput.jump.isHeld;
 
         if (!grab && heldObject && Time.time > timeOfPickup + 0.1f)
         {
             if (heldObject.tag == "Pickup")
             {
-                ThrowPickup();
+                ThrowPickup(false);
             }       
         }
 
@@ -62,6 +63,11 @@ public class Pickup : MonoBehaviour {
         } else
         {
             animator.SetBool("Holding", false);
+        }
+
+        if (heldObject && jump)
+        {
+            ThrowPickup(true);
         }
         
 
@@ -115,6 +121,14 @@ public class Pickup : MonoBehaviour {
 
     private void LiftPickup(Collider other)
     {
+
+        var existingJoint = other.gameObject.GetComponent<FixedJoint>();
+        if (existingJoint != null)
+        {
+            other.gameObject.GetComponent<Rigidbody>().interpolation = objectDefInterpolation;
+            Destroy(existingJoint);
+        }
+  
         //get where to move item once its picked up
         Mesh otherMesh = other.GetComponent<MeshFilter>().mesh;
         holdPos = transform.position + transform.forward * holdOffset.z + transform.right * holdOffset.x + transform.up * holdOffset.y;
@@ -154,20 +168,32 @@ public class Pickup : MonoBehaviour {
         timeOfThrow = Time.time;
     }
 
-    public void ThrowPickup()
+    public void ThrowPickup(bool throwIt)
     {
+        if (joint == null)
+        {
+            // Pickup have been stolen
+            DropPushable();
+            return;
+        }
+        
         if (throwSound)
         {
             aSource.volume = 1;
             aSource.clip = throwSound;
             aSource.Play();
         }
-        Destroy(joint);
-
+        
         Rigidbody r = heldObject.GetComponent<Rigidbody>();
         r.interpolation = objectDefInterpolation;
         r.mass /= weightChange;
-        r.AddRelativeForce(throwForce, ForceMode.VelocityChange);
+
+        if (throwIt && joint != null)
+        {
+            r.AddRelativeForce(throwForce, ForceMode.VelocityChange);
+        }
+
+        Destroy(joint);
 
         heldObject = null;
         timeOfThrow = Time.time;
