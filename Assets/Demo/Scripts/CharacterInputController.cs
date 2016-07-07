@@ -30,7 +30,6 @@ public class CharacterInputController
     [Space(10)]
 
 	public CubeSizer sizer;
-	public Text controlsText;
 	public RuntimeRebinding rebinder;
 
     /// <summary>
