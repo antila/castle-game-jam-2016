@@ -6,8 +6,8 @@ public class Scaler : MonoBehaviour {
 
     public Vector3 startScale;
     public Vector3 endScale;
-    public Ease scaleEasing = Ease.InOutQuint;
-    public float scaleTime = 2f;
+    public Ease m_easing = Ease.InOutQuint;
+    public float transitionTime = 2f;
 
 
     void Reset() {
@@ -18,9 +18,9 @@ public class Scaler : MonoBehaviour {
     // Use this for initialization
     public void Scale (bool forward) {
         if (forward) {
-            transform.DOScale(endScale, scaleTime).SetEase(scaleEasing);
+            transform.DOScale(endScale, transitionTime).SetEase(m_easing);
         } else {
-            transform.DOScale(startScale, scaleTime).SetEase(scaleEasing);
+            transform.DOScale(startScale, transitionTime).SetEase(m_easing);
         }
     }
 	
