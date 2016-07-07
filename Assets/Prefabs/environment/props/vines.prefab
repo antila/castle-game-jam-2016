@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 458734}
   - 33: {fileID: 3379920}
   - 23: {fileID: 2318430}
+  - 64: {fileID: 6440224}
   m_Layer: 0
   m_Name: vines
   m_TagString: Untagged
@@ -62,6 +63,18 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 101494}
+  m_Mesh: {fileID: 4300000, guid: d7dfacb93b96a6d43b5a5e75611d796a, type: 3}
+--- !u!64 &6440224
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 101494}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
   m_Mesh: {fileID: 4300000, guid: d7dfacb93b96a6d43b5a5e75611d796a, type: 3}
 --- !u!1001 &100100000
 Prefab:

@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 492930}
   - 33: {fileID: 3356758}
   - 23: {fileID: 2311324}
+  - 64: {fileID: 6482580}
   m_Layer: 0
   m_Name: castle_tower_medium_top_01
   m_TagString: Untagged
@@ -62,6 +63,18 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 147952}
+  m_Mesh: {fileID: 4300000, guid: c48fd363e97cb1e428515170639c819f, type: 3}
+--- !u!64 &6482580
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 147952}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
   m_Mesh: {fileID: 4300000, guid: c48fd363e97cb1e428515170639c819f, type: 3}
 --- !u!1001 &100100000
 Prefab:

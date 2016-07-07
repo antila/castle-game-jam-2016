@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 451108}
   - 33: {fileID: 3328158}
   - 23: {fileID: 2327952}
+  - 64: {fileID: 6482842}
   m_Layer: 0
   m_Name: castle_window_01
   m_TagString: Untagged
@@ -62,6 +63,18 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 131666}
+  m_Mesh: {fileID: 4300000, guid: 2a7159e3d0e073b47afc26f213f915ed, type: 3}
+--- !u!64 &6482842
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 131666}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
   m_Mesh: {fileID: 4300000, guid: 2a7159e3d0e073b47afc26f213f915ed, type: 3}
 --- !u!1001 &100100000
 Prefab:

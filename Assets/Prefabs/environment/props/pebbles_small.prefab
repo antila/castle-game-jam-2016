@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 404364}
   - 33: {fileID: 3353970}
   - 23: {fileID: 2397346}
+  - 64: {fileID: 6414152}
   m_Layer: 0
   m_Name: pebbles_small
   m_TagString: Untagged
@@ -63,6 +64,18 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 174302}
+  m_Mesh: {fileID: 4300000, guid: 10da0cd6ce4f37e4e99d61221454e5c5, type: 3}
+--- !u!64 &6414152
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 174302}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
   m_Mesh: {fileID: 4300000, guid: 10da0cd6ce4f37e4e99d61221454e5c5, type: 3}
 --- !u!1001 &100100000
 Prefab:
