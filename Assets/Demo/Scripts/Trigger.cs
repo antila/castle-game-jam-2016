@@ -6,23 +6,31 @@ public class Trigger : MonoBehaviour {
 
     Collider triggerCollider;
     public Color triggerColor = new Color(0, 0, 1);
-    public UnityEvent onTriggerEnter;
-    public UnityEvent onTriggerLeave;
-    public UnityEvent onTriggerStay;
+    public string triggerTag = "Player";
+    public UnityEvent triggerEnter;
+    public UnityEvent triggerExit;
+    public UnityEvent triggerStay;
+
     int count = 0;
 
+    public void Test() { Debug.Log("Debug"); }
+
     void OnTriggerEnter(Collider other) {
-        Debug.Log("OnEnter");
+        if (other.tag == triggerTag) {
+            triggerEnter.Invoke();
+        }
     }
 
-    void OnTriggerLeave(Collider other)
-    {
-        Debug.Log("OnLeave " + count);
+    void OnTriggerExit(Collider other) {
+        if (other.tag == triggerTag) {
+            triggerExit.Invoke();
+        }
     }
 
-    void OnTriggerStay(Collider other)
-    {
-        count++;
+    void OnTriggerStay(Collider other) {
+        if (other.tag == triggerTag) {
+            triggerStay.Invoke();
+        }
     }
 
     // Use this for initialization
