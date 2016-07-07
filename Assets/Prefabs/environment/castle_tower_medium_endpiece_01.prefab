@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 459354}
   - 33: {fileID: 3353920}
   - 23: {fileID: 2315440}
+  - 64: {fileID: 6421390}
   m_Layer: 0
   m_Name: castle_tower_medium_endpiece_01
   m_TagString: Untagged
@@ -62,6 +63,18 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 199298}
+  m_Mesh: {fileID: 4300000, guid: 31fe36d85d24c024b9ba0e5f6a89359d, type: 3}
+--- !u!64 &6421390
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 199298}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
   m_Mesh: {fileID: 4300000, guid: 31fe36d85d24c024b9ba0e5f6a89359d, type: 3}
 --- !u!1001 &100100000
 Prefab:

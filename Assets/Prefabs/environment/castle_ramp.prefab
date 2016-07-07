@@ -10,6 +10,8 @@ GameObject:
   - 4: {fileID: 481984}
   - 33: {fileID: 3326480}
   - 23: {fileID: 2322172}
+  - 64: {fileID: 6426500}
+  - 64: {fileID: 6488642}
   m_Layer: 0
   m_Name: castle_ramp
   m_TagString: Untagged
@@ -62,6 +64,30 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 137452}
+  m_Mesh: {fileID: 4300000, guid: d7f2616cbe18f0444a5d06cad655f2f1, type: 3}
+--- !u!64 &6426500
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 137452}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_Mesh: {fileID: 4300000, guid: d7f2616cbe18f0444a5d06cad655f2f1, type: 3}
+--- !u!64 &6488642
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 137452}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
   m_Mesh: {fileID: 4300000, guid: d7f2616cbe18f0444a5d06cad655f2f1, type: 3}
 --- !u!1001 &100100000
 Prefab:

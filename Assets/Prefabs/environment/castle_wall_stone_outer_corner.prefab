@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 496864}
   - 33: {fileID: 3367788}
   - 23: {fileID: 2301910}
+  - 64: {fileID: 6498530}
   m_Layer: 0
   m_Name: castle_wall_stone_outer_corner
   m_TagString: Untagged
@@ -62,6 +63,18 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 155982}
+  m_Mesh: {fileID: 4300000, guid: 5ab2878dc7b17b9409c9444ee64ce487, type: 3}
+--- !u!64 &6498530
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 155982}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
   m_Mesh: {fileID: 4300000, guid: 5ab2878dc7b17b9409c9444ee64ce487, type: 3}
 --- !u!1001 &100100000
 Prefab:
