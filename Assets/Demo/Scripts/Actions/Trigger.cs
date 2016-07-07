@@ -33,13 +33,11 @@ public class Trigger : MonoBehaviour {
         }
     }
 
-    // Use this for initialization
     void Start () {
         triggerCollider = gameObject.GetComponent<Collider>();
 
 	}
 
-    // Update is called once per frame
     void OnDrawGizmos() {
         var tempColor = triggerColor;
 
