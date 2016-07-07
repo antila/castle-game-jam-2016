@@ -202,10 +202,27 @@ public class MultiplayerManager : MonoBehaviour
                 map.active = !actionMapSlot.active;
             }
 
-			Transform spawnTransform = spawnPositions[i % spawnPositions.Count];
-			var player = (PlayerInput)Instantiate(playerPrefab, spawnTransform.position, spawnTransform.rotation);
-			player.handle = playerInfo.playerHandle;
             
+
+			Transform spawnTransform = spawnPositions[i % spawnPositions.Count];
+
+            if (spawnTransform == null)
+            {
+                Debug.LogError("Couldn't find spawn for player " + i);
+            }
+
+            if (spawnPositions.Count != 4)
+            {
+                Debug.LogError("You don't have 4 spawn positions set!");
+            }
+
+            var player = (PlayerInput) Instantiate(
+                playerPrefab, 
+                spawnTransform.position, 
+                spawnTransform.rotation
+            );
+
+			player.handle = playerInfo.playerHandle;
 
             var camera = (GameObject)Instantiate(cameraPrefab, spawnTransform.position, spawnTransform.rotation);
             camera.GetComponent<LookAtCamera>().targetPlayer = player;
@@ -219,8 +236,6 @@ public class MultiplayerManager : MonoBehaviour
 
             GameObject playerModel = (GameObject)Instantiate(playerPrefabs[i], spawnTransform.position, spawnTransform.rotation);
             playerModel.transform.parent = player.gameObject.transform;
-
-
         }
 		
 		if (onStartGame != null)
