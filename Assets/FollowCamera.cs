@@ -42,6 +42,8 @@ public class FollowCamera : MonoBehaviour
         var currentRotationAngle = transform.eulerAngles.y;
         var currentHeight = transform.position.y;
 
+        wantedHeight += (m_MapInput.look.vector2.y * 3);
+
         // Damp the rotation around the y-axis
         currentRotationAngle = Mathf.LerpAngle(currentRotationAngle, wantedRotationAngle, rotationDamping * Time.deltaTime);
 
@@ -66,8 +68,11 @@ public class FollowCamera : MonoBehaviour
         {
             step = 0-step;
         }
-        
+
+        lookAt.y = wantedHeight;
         transform.position = Vector3.MoveTowards(transform.position, lookAt, step);
+
+        
 
     }
     
