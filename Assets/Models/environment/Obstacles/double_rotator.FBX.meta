@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 0dc1391c2011b7f4b818ec2dd83c16b1
-timeCreated: 1467911275
+guid: 8748df047a51b1e44a93c206a45e1bf5
+timeCreated: 1467909722
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -9,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Box003
+    4300000: double_rotator
   materials:
     importMaterials: 1
     materialName: 0
