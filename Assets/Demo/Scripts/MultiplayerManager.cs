@@ -199,8 +199,8 @@ public class MultiplayerManager : MonoBehaviour
 			foreach (ActionMapSlot actionMapSlot in playerPrefab.actionMaps)
 			{
 				var map = playerInfo.playerHandle.GetActions(actionMapSlot.actionMap);
-				map.active = actionMapSlot.active;
-			}
+                map.active = !actionMapSlot.active;
+            }
 
 			Transform spawnTransform = spawnPositions[i % spawnPositions.Count];
 			var player = (PlayerInput)Instantiate(playerPrefab, spawnTransform.position, spawnTransform.rotation);
