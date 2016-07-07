@@ -305,9 +305,9 @@ MonoBehaviour:
   isStartScene: 1
   playerPrefabs: []
   joinAction:
-    action: {fileID: 11419910, guid: 24548a596fd7f47dfa0d33e0d38d0dbd, type: 2}
+    action: {fileID: -1104055420, guid: ec81029b8bc394580b2db3624d4fabe5, type: 2}
   leaveAction:
-    action: {fileID: 11464254, guid: 24548a596fd7f47dfa0d33e0d38d0dbd, type: 2}
+    action: {fileID: 11472910, guid: ec81029b8bc394580b2db3624d4fabe5, type: 2}
   spawnPositions:
   - {fileID: 0}
   - {fileID: 0}

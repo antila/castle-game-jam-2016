@@ -49,9 +49,9 @@ MonoBehaviour:
         deviceType:
           m_TypeName: UnityEngine.InputNew.Keyboard, Assembly-CSharp, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
-      - controlIndex: 13
+      - controlIndex: 15
         deviceType:
-          m_TypeName: UnityEngine.InputNew.Keyboard, Assembly-CSharp, Version=0.0.0.0,
+          m_TypeName: UnityEngine.InputNew.Pointer, Assembly-CSharp, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
       deadZone: 0.3
       buttonAxisSources: []
@@ -61,6 +61,10 @@ MonoBehaviour:
       primaryIsButtonAxis: 0
     - sources:
       - controlIndex: 27
+        deviceType:
+          m_TypeName: UnityEngine.InputNew.Keyboard, Assembly-CSharp, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+      - controlIndex: 8
         deviceType:
           m_TypeName: UnityEngine.InputNew.Keyboard, Assembly-CSharp, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null

@@ -227,11 +227,11 @@ MonoBehaviour:
   autoAssignGlobal: 0
   actionMaps:
   - actionMap: {fileID: 11400000, guid: ec81029b8bc394580b2db3624d4fabe5, type: 2}
-    active: 0
-    blockSubsequent: 1
-  - actionMap: {fileID: 11400000, guid: 24548a596fd7f47dfa0d33e0d38d0dbd, type: 2}
     active: 1
     blockSubsequent: 0
+  - actionMap: {fileID: 11400000, guid: 24548a596fd7f47dfa0d33e0d38d0dbd, type: 2}
+    active: 0
+    blockSubsequent: 1
 --- !u!114 &11461774
 MonoBehaviour:
   m_ObjectHideFlags: 1
