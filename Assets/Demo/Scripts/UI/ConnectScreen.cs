@@ -9,7 +9,6 @@ public class ConnectScreen : MonoBehaviour {
     public ScreenManager screenManager;
     public UIScreen nextScreen;
     public Text instructions;
-
     [Serializable]
     public class StatusImages {
         public Image image;

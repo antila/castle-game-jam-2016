@@ -25,6 +25,8 @@ public class MultiplayerManager : MonoBehaviour
 
     [Space]
 
+    public AudioSource clickSound;
+
     [HideInInspector]
 	public List<Transform> spawnPositions = new List<Transform>();
 
@@ -94,8 +96,11 @@ public class MultiplayerManager : MonoBehaviour
         // Listen to if the join button was pressed on a yet unassigned device.
         if ((joinAction.control.wasJustPressed && !isStartScene) || (joinAction.control.wasJustPressed && isStartScene && connectScreen && connectScreen.isActiveAndEnabled))
 		{
-			// These are the devices currently active in the global player handle.
-			List<InputDevice> devices = globalHandle.GetActions(joinAction.action.actionMap).GetCurrentlyUsedDevices();
+            if (clickSound)
+                clickSound.Play();
+
+            // These are the devices currently active in the global player handle.
+            List<InputDevice> devices = globalHandle.GetActions(joinAction.action.actionMap).GetCurrentlyUsedDevices();
 			PlayerHandle handle = PlayerHandleManager.GetNewPlayerHandle();
 			foreach (var device in devices)
             {
@@ -128,12 +133,18 @@ public class MultiplayerManager : MonoBehaviour
 		for (int i = players.Count - 1; i >= 0; i--) {
 			var player = players[i];
 			if (player.leaveControl.wasJustPressed) {
-				player.playerHandle.Destroy();
+                if (clickSound)
+                    clickSound.Play();
+                player.playerHandle.Destroy();
 				players.Remove(player);
 				continue;
 			}
 
-            if (player.startControl.wasJustPressed) { startWasPressed = true; }
+            if (player.startControl.wasJustPressed) {
+                startWasPressed = true;
+                if (clickSound)
+                    clickSound.Play();
+            }
                 
         }
 
