@@ -130,7 +130,7 @@ Material:
       data:
         first:
           name: _SkyExponent1
-        second: 8.5
+        second: 12.17
       data:
         first:
           name: _SkyExponent2
@@ -175,15 +175,15 @@ Material:
       data:
         first:
           name: _SunColor
-        second: {r: 1, g: 0.99, b: 0.87, a: 1}
+        second: {r: 1, g: 0.9278359, b: 0.85294116, a: 1}
       data:
         first:
           name: _SkyColor1
-        second: {r: 0.37, g: 0.52, b: 0.73, a: 0}
+        second: {r: 0.5562582, g: 0.52076125, b: 0.8235294, a: 0}
       data:
         first:
           name: _SkyColor2
-        second: {r: 0.89, g: 0.96, b: 1, a: 0}
+        second: {r: 1, g: 0.93324137, b: 0.89, a: 0}
       data:
         first:
           name: _SkyColor3

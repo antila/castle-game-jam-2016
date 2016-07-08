@@ -7,6 +7,7 @@ public class Spawner : MonoBehaviour
     public Transform[] spawnPoints;         // An array of the spawn points this enemy can spawn from.
     public Vector3 spawnForce = new Vector3(0, 0, 20);
     public Vector3 spawnRandomJitter = new Vector3(6, 0, 10);
+    public  bool isActive = true;
 
     void Start()
     {
@@ -16,7 +17,7 @@ public class Spawner : MonoBehaviour
 
     void Spawn()
     {
-        if (item != null)
+        if (item != null && isActive)
         {
             // Create an instance of the enemy prefab at the randomly selected spawn point's position and rotation.
             GameObject spawn = (GameObject)Instantiate(item, transform.position, transform.rotation);

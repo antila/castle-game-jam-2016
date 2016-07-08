@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class TrapManager : MonoBehaviour {
 
     public Trap trapPrefab;
+    public Spawner boxSpawner;
 
     [Range(2, 10)]
     public int gridSize = 5;
@@ -49,12 +50,15 @@ public class TrapManager : MonoBehaviour {
                 x = x + trapSpace;
                 r += 90f;
                 Instantiate(trapPrefab, new Vector3(x, 15f, z), Quaternion.Euler(0, r, 0));
+                boxSpawner.spawnTime = Random.Range(3f, 10f);
+                Spawner spawner = (Spawner)Instantiate(boxSpawner, new Vector3(x, 80f, z), Quaternion.identity);
+                spawner.isActive = true;
             }
             x = 0;
         }
-
+        boxSpawner.gameObject.SetActive(false);
         traps = new List<Trap>(FindObjectsOfType<Trap>());
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {

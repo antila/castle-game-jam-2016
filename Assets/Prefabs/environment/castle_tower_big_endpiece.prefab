@@ -10,13 +10,13 @@ GameObject:
   - 4: {fileID: 403216}
   - 33: {fileID: 3376694}
   - 23: {fileID: 2332662}
-  - 64: {fileID: 6453404}
+  - 64: {fileID: 6470608}
   m_Layer: 0
   m_Name: castle_tower_big_endpiece
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &403216
 Transform:
@@ -25,7 +25,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 187230}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 133.37013, y: -0.0000024414062, z: 137.7184}
+  m_LocalPosition: {x: 69.37408, y: 155.05937, z: -8.3}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -41,6 +41,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
+  - {fileID: 2100000, guid: 82e29a082c26f8243afb3705cafbed1a, type: 2}
   - {fileID: 2100000, guid: 16d1c0e5fa88c214da3c7ea85b76e865, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
@@ -64,7 +65,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 187230}
   m_Mesh: {fileID: 4300000, guid: f37ad5f1fd52f7a49ad7f9b9a95009c0, type: 3}
---- !u!64 &6453404
+--- !u!64 &6470608
 MeshCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
