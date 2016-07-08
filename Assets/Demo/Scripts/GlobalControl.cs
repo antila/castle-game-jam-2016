@@ -28,10 +28,10 @@ public class GlobalControl : MonoBehaviour {
         }
     }
 
-    public void RoundFinished() {
-        var players = globalMultiplayerManager.players;
-        for (int i = 0; i < players.Count; i++) {
-            if (players[i].winner) { 
+    public void RoundFinished(GameObject winner) {
+        var players = GameObject.FindGameObjectsWithTag("Player");
+        for (int i = 0; i < players.Length; i++) {
+            if (players[i] == winner) { 
                 winScreen.ShowWinner(players[i]);
                 break;
             }

@@ -12,6 +12,7 @@ public class Trap : MonoBehaviour {
     public Rigidbody leftDoor;
     public Rigidbody rightDoor;
 
+    public float weight = 1;
     TrapManager trapManager;
     float shakeTime;
     float dropTime;

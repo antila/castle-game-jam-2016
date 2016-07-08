@@ -35,8 +35,6 @@ public class MultiplayerManager : MonoBehaviour
 		public PlayerHandle playerHandle;
 
         public bool ready = false;
-        public string result = "";
-        public bool winner = false;
         public Color color = new Color(1f,1f,1f);
 
         public ButtonInputControl joinControl;

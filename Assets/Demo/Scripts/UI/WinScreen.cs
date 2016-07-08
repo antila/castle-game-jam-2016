@@ -41,9 +41,8 @@ public class WinScreen : MonoBehaviour {
 
     }
 
-    public void ShowWinner(MultiplayerManager.PlayerInfo winner) {
-        var playerCameras = FindObjectsOfType<Camera>();
-        playerCamera = playerCameras[0];
+    public void ShowWinner(GameObject winner) {
+        playerCamera = winner.GetComponent<PlayerInput>().cameraHandle.GetComponent<Camera>();
         originalDepth = playerCamera.depth;
         playerCamera.depth = 9f;
         originalCameraRect = playerCamera.rect;

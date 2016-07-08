@@ -4,14 +4,11 @@ using UnityEngine.Events;
 
 public class Trigger : MonoBehaviour {
 
-    Collider triggerCollider;
     public Color triggerColor = new Color(0, 0, 1);
     public string triggerTag = "Player";
     public UnityEvent triggerEnter;
     public UnityEvent triggerExit;
     public UnityEvent triggerStay;
-
-    int count = 0;
 
     public void Test() { Debug.Log("Debug"); }
 
@@ -32,11 +29,6 @@ public class Trigger : MonoBehaviour {
             triggerStay.Invoke();
         }
     }
-
-    void Start () {
-        triggerCollider = gameObject.GetComponent<Collider>();
-
-	}
 
     void OnDrawGizmos() {
         var tempColor = triggerColor;
