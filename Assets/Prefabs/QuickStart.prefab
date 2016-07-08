@@ -155,6 +155,8 @@ MonoBehaviour:
   cameraPrefab: {fileID: 183230, guid: e7ca8efc4d8c2314ca0c961a91fc9876, type: 2}
   isStartScene: 0
   playerPrefabs: []
+  startAction:
+    action: {fileID: 11435516, guid: ec81029b8bc394580b2db3624d4fabe5, type: 2}
   joinAction:
     action: {fileID: -1104055420, guid: ec81029b8bc394580b2db3624d4fabe5, type: 2}
   leaveAction:

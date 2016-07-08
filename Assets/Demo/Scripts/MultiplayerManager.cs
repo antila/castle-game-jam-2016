@@ -19,6 +19,7 @@ public class MultiplayerManager : MonoBehaviour
 
     [Space]
 
+    public ButtonAction startAction;
     public ButtonAction joinAction;
     public ButtonAction leaveAction;
 
@@ -35,15 +36,16 @@ public class MultiplayerManager : MonoBehaviour
 	{
 		public PlayerHandle playerHandle;
 
-        public bool ready = false;
         public Color color = new Color(1f,1f,1f);
 
+        public ButtonInputControl startControl;
         public ButtonInputControl joinControl;
 		public ButtonInputControl leaveControl;
 
-		public PlayerInfo(PlayerHandle playerHandle, ButtonAction joinAction, ButtonAction leaveAction)
+		public PlayerInfo(PlayerHandle playerHandle, ButtonAction joinAction, ButtonAction leaveAction, ButtonAction startAction)
 		{
 			this.playerHandle = playerHandle;
+            startControl = playerHandle.GetActions(startAction.action.actionMap)[startAction.action.actionIndex] as ButtonInputControl;
             joinControl = playerHandle.GetActions(joinAction.action.actionMap)[joinAction.action.actionIndex] as ButtonInputControl;
 			leaveControl = playerHandle.GetActions(leaveAction.action.actionMap)[leaveAction.action.actionIndex] as ButtonInputControl;
 		}
@@ -71,17 +73,14 @@ public class MultiplayerManager : MonoBehaviour
 			globalHandle.maps.Add(actionMapInput);
 		}
 
-		joinAction.Bind(globalHandle);
+        startAction.Bind(globalHandle);
+        joinAction.Bind(globalHandle);
 		leaveAction.Bind(globalHandle);
 
-        
-
-        
-
-        playerPrefabs.Add((GameObject)Resources.Load("Blue_Wizard"));
+        playerPrefabs.Add((GameObject)Resources.Load("Green_Wizard"));
         playerPrefabs.Add((GameObject)Resources.Load("Red_Wizard"));
         playerPrefabs.Add((GameObject)Resources.Load("Yellow_Wizard"));
-        playerPrefabs.Add((GameObject)Resources.Load("Green_Wizard"));
+        playerPrefabs.Add((GameObject)Resources.Load("Blue_Wizard"));
     }
 
     public void Update()
@@ -118,40 +117,30 @@ public class MultiplayerManager : MonoBehaviour
 				handle.maps.Add(map);
 			}
             
-			players.Add(new PlayerInfo(handle, joinAction, leaveAction));
+			players.Add(new PlayerInfo(handle, joinAction, leaveAction, startAction));
 
             if (connectScreen) {
                 players[players.Count - 1].color = connectScreen.statusImages[players.Count - 1].color;
             }
         }
 
-        int readyCount = 0;
+        bool startWasPressed = false;
 		for (int i = players.Count - 1; i >= 0; i--) {
 			var player = players[i];
-			if (!player.ready)
-			{
-				if (player.joinControl.wasJustPressed)
-					player.ready = true;
-				if (player.leaveControl.wasJustPressed)
-				{
-					player.playerHandle.Destroy();
-					players.Remove(player);
-					continue;
-				}
+			if (player.leaveControl.wasJustPressed) {
+				player.playerHandle.Destroy();
+				players.Remove(player);
+				continue;
 			}
-			else
-			{
-				if (player.joinControl.wasJustPressed || player.leaveControl.wasJustPressed)
-					player.ready = false;
-			}
-			if (player.ready)
-				readyCount++;
-		}
 
-        if (!gameStarted && isStartScene && connectScreen && readyCount >= 1 && (players.Count - readyCount) == 0) {
+            if (player.startControl.wasJustPressed) { startWasPressed = true; }
+                
+        }
+
+        if (!gameStarted && isStartScene && connectScreen && startWasPressed && players.Count > 1) {
             gameStarted = true;
             connectScreen.ShowGameScreen();
-        } else if (!isStartScene && readyCount >= 1 && (players.Count - readyCount) == 0) {
+        } else if (!isStartScene && startWasPressed && players.Count > 1) {
             StartGame();
         }
 	}
@@ -172,28 +161,14 @@ public class MultiplayerManager : MonoBehaviour
 			
 			    GUILayout.BeginVertical();
 			    GUILayout.Space(10);
-			    if (!player.ready)
-			    {
-				    GUILayout.Label(string.Format("Press {0} when ready\n\n(Press {1} to leave)",
-					    player.joinControl.GetPrimarySourceName(),
-					    player.leaveControl.GetPrimarySourceName()));
-			    }
-			    else
-			    {
-				    GUILayout.Label(string.Format("READY\n\n(Press {0} to cancel)",
-					    player.leaveControl.GetPrimarySourceName()));
-			    }
+				GUILayout.Label(string.Format("Press {0} when ready\n\n(Press {1} to leave)",
+					player.startControl.GetPrimarySourceName(),
+					player.leaveControl.GetPrimarySourceName()));
 			    GUILayout.EndVertical();
 			    GUILayout.EndArea();
 			
 			    playerNum++;
 		    }
-        }
-    }
-
-    public void SetReadyState(bool state = false) {
-        for (int i = players.Count - 1; i >= 0; i--) {
-            players[i].ready = false;
         }
     }
 

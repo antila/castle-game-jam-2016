@@ -37,16 +37,9 @@ public class ConnectScreen : MonoBehaviour {
 
                 var player = Multiplayer.players[i];
 
-                if (player.ready) {
-                    statusImages[i].message.text = "READY!";
-                    playerColor.a = 1f;
-                    statusImages[i].image.color = playerColor;
-                } else {
-                    statusImages[i].message.text = "READY?";
-                    playerColor = playerColor * 0.8f;
-                    playerColor.a = 1f;
-                    statusImages[i].image.color = playerColor;
-                }
+                statusImages[i].message.text = "READY!";
+                playerColor.a = 1f;
+                statusImages[i].image.color = playerColor;
 
             } else {
                 statusImages[i].message.text = "";
