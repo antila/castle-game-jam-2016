@@ -44,6 +44,7 @@ GameObject:
   - 4: {fileID: 435064}
   - 114: {fileID: 11402482}
   - 114: {fileID: 11477442}
+  - 82: {fileID: 8203654}
   m_Layer: 0
   m_Name: Multiplayer
   m_TagString: Untagged
@@ -133,6 +134,80 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 190968}
   m_Enabled: 1
+--- !u!82 &8203654
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 197928}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!92 &9217686
 Behaviour:
   m_ObjectHideFlags: 1
@@ -161,6 +236,7 @@ MonoBehaviour:
     action: {fileID: -1104055420, guid: ec81029b8bc394580b2db3624d4fabe5, type: 2}
   leaveAction:
     action: {fileID: 11472910, guid: ec81029b8bc394580b2db3624d4fabe5, type: 2}
+  clickSound: {fileID: 0}
   spawnPositions:
   - {fileID: 0}
   - {fileID: 0}
@@ -193,6 +269,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: MultiplayerManager+StartGameEvent, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  menuMusic: {fileID: 8300000, guid: abf203bde908d2a43ae3bdc11ce2c9f3, type: 3}
 --- !u!114 &11477442
 MonoBehaviour:
   m_ObjectHideFlags: 1
