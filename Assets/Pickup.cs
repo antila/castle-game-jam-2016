@@ -3,23 +3,29 @@ using System.Collections;
 using UnityEngine.InputNew;
 
 public class Pickup : MonoBehaviour {
-
+    [HideInInspector]
     public FirstPersonControls m_MapInput;
+    [HideInInspector]
     public GameObject heldObject;
     private float timeOfPickup;
 
     public AudioClip pickUpSound;                               //sound when you pickup/grab an object
     public AudioClip throwSound;                                //sound when you throw an object
+    [HideInInspector]
     public GameObject grabBox;                                  //objects inside this trigger box can be picked up by the player (think of this as your reach)
     public Vector3 holdOffset = new Vector3(0, 0.2f, 1.1f);           //position offset from centre of player, to hold the box (used to be "gap" in old version)
-    public Vector3 throwForce = new Vector3(0, 12, 18);           //the throw force of the player
+    public Vector3 throwForce = new Vector3(0, 3, 80);           //the throw force of the player
+    [HideInInspector]
     public float rotateToBlockSpeed = 3;                        //how fast to face the "Pushable" object you're holding/pulling
+    [HideInInspector]
     public float checkRadius = 0.5f;                            //how big a radius to check above the players head, to see if anything is in the way of your pickup
-    [Range(0.1f, 1f)]                                           //new weight of a carried object, 1 means no change, 0.1 means 10% of its original weight													
-    public float weightChange = 0.3f;                           //this is so you can easily carry objects without effecting movement if you wish to
+    [Range(0.01f, 1f)]                                           //new weight of a carried object, 1 means no change, 0.1 means 10% of its original weight													
+    public float weightChange = 0.1f;                           //this is so you can easily carry objects without effecting movement if you wish to
     [Range(10f, 1000f)]
     public float holdingBreakForce = 45, holdingBreakTorque = 45;//force and angularForce needed to break your grip on a "Pushable" object youre holding onto
+    [HideInInspector]
     public Animator animator;                                   //object with animation controller on, which you want to animate (usually same as in PlayerMove)
+    [HideInInspector]
     public int armsAnimationLayer;                              //index of the animation layer for "arms"
 
     [HideInInspector]

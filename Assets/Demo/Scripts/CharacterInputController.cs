@@ -10,27 +10,27 @@ using UnityEngine.Serialization;
 public class CharacterInputController
 	: MonoBehaviour
 {
-	public FirstPersonControls m_MapInput;
+    [HideInInspector]
+    public FirstPersonControls m_MapInput;
 	Rigidbody m_Rigid;
 	Vector2 m_Rotation = Vector2.zero;
 
 	float m_TimeOfLastShot;
 
-	public PlayerInput playerInput;
-	public Transform head;
+    [HideInInspector]
+    public PlayerInput playerInput;
+    [HideInInspector]
+    public Transform head;
 
-	public GameObject projectile;
+
 	public float timeBetweenShots = 0.5f;
 
-    public float jumpPower = 600;
 	private float distToGround;
 
+    [HideInInspector]
     public DragRigidbody drag;
 
     [Space(10)]
-
-	public CubeSizer sizer;
-	public RuntimeRebinding rebinder;
 
     public Transform lastCheckpoint;
 
@@ -40,14 +40,21 @@ public class CharacterInputController
     /// </summary>
 
 
+    [HideInInspector]
     public float DistanceToTarget;
+
+    [HideInInspector]
     public Vector3 currentSpeed;
     //
 
     //setup
-    public bool sidescroller;                   //if true, won't apply vertical input
-    public Transform mainCam, floorChecks;      //main camera, and floorChecks object. FloorChecks are raycasted down from to check the player is grounded.
+    [HideInInspector]
+    public Transform mainCam;
+    [HideInInspector]
+    public Transform floorChecks;      //main camera, and floorChecks object. FloorChecks are raycasted down from to check the player is grounded.
+    [HideInInspector]
     public Animator animator;                   //object with animation controller on, which you want to animate
+
     public AudioClip jumpSound;                 //play when jumping
     public AudioClip landSound;                 //play when landing on ground
 
@@ -63,7 +70,7 @@ public class CharacterInputController
     public float movingPlatformFriction = 7.7f;             //you'll need to tweak this to get the player to stay on moving platforms properly
 
     //jumping
-    public Vector3 jumpForce = new Vector3(0, 23, 0);       //normal jump force
+    public Vector3 jumpForce = new Vector3(0, 3, 0);       //normal jump force
     public float jumpLeniancy = 0.1f;                      //how early before hitting the ground you can press jump, and still have it work
     [HideInInspector]
     public int onEnemyBounce;
@@ -82,9 +89,6 @@ public class CharacterInputController
     public void Start()
 	{
 		m_MapInput = playerInput.GetActions<FirstPersonControls>();
-
-		if (rebinder != null)
-			rebinder.Initialize(m_MapInput);
 
 		m_Rigid = GetComponent<Rigidbody>();
 
