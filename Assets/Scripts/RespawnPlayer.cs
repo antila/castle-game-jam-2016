@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.InputNew;
 
 public class RespawnPlayer : MonoBehaviour {
 
@@ -18,6 +19,9 @@ public class RespawnPlayer : MonoBehaviour {
             }
 
             other.gameObject.transform.position = lastCheckpoint.position;
+            
+            // Reset camera after position
+            other.gameObject.GetComponent<PlayerInput>().cameraHandle.GetComponent<FollowCamera>().ResetPosition();
         }
     }
 

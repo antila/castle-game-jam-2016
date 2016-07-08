@@ -209,9 +209,10 @@ public class MultiplayerManager : MonoBehaviour
             camera.GetComponent<LookAtCamera>().targetPlayer = player;
             //camera.GetComponent<LookatTarget>().target = player;
             camera.GetComponent<FollowCamera>().targetPlayer = player;
+            camera.GetComponent<FollowCamera>().ResetPosition();
 
             camera.transform.position += Vector3.up * 2;
-            camera.transform.position += -Vector3.forward * 5;
+            camera.transform.position += Vector3.forward * 10;
 
             player.cameraHandle = camera;
 

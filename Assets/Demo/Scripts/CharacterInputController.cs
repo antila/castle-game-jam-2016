@@ -12,8 +12,12 @@ public class CharacterInputController
 {
     [HideInInspector]
     public FirstPersonControls m_MapInput;
-	Rigidbody m_Rigid;
-	Vector2 m_Rotation = Vector2.zero;
+
+    [HideInInspector]
+    public Rigidbody m_Rigid;
+
+    [HideInInspector]
+    public Vector2 m_Rotation = Vector2.zero;
 
 	float m_TimeOfLastShot;
 
@@ -128,7 +132,6 @@ public class CharacterInputController
             pMat.dynamicFriction = 0f;
             pMat.staticFriction = 0f;
             GetComponent<Collider>().material = pMat;
-            Debug.LogWarning("No physics material found for CharacterMotor, a frictionless one has been created and assigned", transform);
         }
 
         //create single floorcheck in centre of object, if none are assigned
@@ -142,13 +145,11 @@ public class CharacterInputController
             check.name = "Check1";
             check.transform.parent = floorChecks;
             check.transform.position = transform.position;
-            Debug.LogWarning("No 'floorChecks' assigned to PlayerMove script, so a single floorcheck has been created", floorChecks);
         }
         //assign player tag if not already
         if (tag != "Player")
         {
             tag = "Player";
-            Debug.LogWarning("PlayerMove script assigned to object without the tag 'Player', tag has been assigned automatically", transform);
         }
         //usual setup
         rigid = GetComponent<Rigidbody>();
