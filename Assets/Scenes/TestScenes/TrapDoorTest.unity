@@ -317,6 +317,7 @@ GameObject:
   - 33: {fileID: 1493127940}
   - 65: {fileID: 1493127939}
   - 114: {fileID: 1493127937}
+  - 114: {fileID: 1493127938}
   m_Layer: 0
   m_Name: FallZone
   m_TagString: Untagged
@@ -366,6 +367,17 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+--- !u!114 &1493127938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1493127935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb407b5854888bf4389d5bf0e4332cf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!65 &1493127939
 BoxCollider:
   m_ObjectHideFlags: 0
