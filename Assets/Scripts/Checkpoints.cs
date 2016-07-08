@@ -41,15 +41,13 @@ public class Checkpoints : MonoBehaviour
         if (other.transform.tag == "Player")
         {
             other.GetComponent<CharacterInputController>().lastCheckpoint = transform;
-
-            //toggle checkpoints
-            if (render.material.color != activeColor)
-            {
-                //foreach (GameObject checkpoint in checkpoints)
-                //    checkpoint.GetComponent<Renderer>().material.color = defColor;
-                aSource.Play();
-                render.material.color = activeColor;
-            }
         }
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = new Color(0, 1, 0, 0.5f);
+        Gizmos.matrix = transform.localToWorldMatrix;
+        Gizmos.DrawCube(Vector3.zero, Vector3.one);
     }
 }
