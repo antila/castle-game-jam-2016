@@ -23,6 +23,15 @@ public class FollowCamera : MonoBehaviour
         
     }
 
+    public void ResetPosition()
+    {
+        Transform target = targetPlayer.gameObject.transform;
+        
+        transform.position = target.position;
+        transform.position += Vector3.up * 2;
+        transform.position += Vector3.forward * 15;
+    }
+
     void LateUpdate()
     {
         // Early out if we don't have a target
