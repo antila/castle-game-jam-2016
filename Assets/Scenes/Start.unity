@@ -99,6 +99,7 @@ GameObject:
   - 114: {fileID: 243363750}
   - 114: {fileID: 243363754}
   - 82: {fileID: 243363755}
+  - 81: {fileID: 243363756}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -273,6 +274,13 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!81 &243363756
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 243363749}
+  m_Enabled: 1
 --- !u!1 &268487299
 GameObject:
   m_ObjectHideFlags: 0
@@ -2469,7 +2477,7 @@ AudioListener:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1351372090}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!92 &1351372092
 Behaviour:
   m_ObjectHideFlags: 0
