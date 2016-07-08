@@ -2904,7 +2904,6 @@ Transform:
   m_Children:
   - {fileID: 1493127936}
   - {fileID: 1579837685}
-  - {fileID: 1204745088}
   m_Father: {fileID: 0}
   m_RootOrder: 3
 --- !u!1001 &561276978
@@ -8261,7 +8260,7 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 528578112}
+    m_TransformParent: {fileID: 2025098819}
     m_Modifications:
     - target: {fileID: 494438, guid: d9969b384a483b14c8979bb852a69cf3, type: 2}
       propertyPath: m_LocalPosition.x
@@ -8294,6 +8293,14 @@ Prefab:
     - target: {fileID: 494438, guid: d9969b384a483b14c8979bb852a69cf3, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11471076, guid: d9969b384a483b14c8979bb852a69cf3, type: 2}
+      propertyPath: rotationAdded.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 11471076, guid: d9969b384a483b14c8979bb852a69cf3, type: 2}
+      propertyPath: addRandom90Rotation
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d9969b384a483b14c8979bb852a69cf3, type: 2}
@@ -9286,6 +9293,7 @@ Transform:
   m_Children:
   - {fileID: 494993440}
   - {fileID: 1370870493}
+  - {fileID: 1204745088}
   m_Father: {fileID: 0}
   m_RootOrder: 2
 --- !u!114 &2025098820
