@@ -94,7 +94,7 @@ GameObject:
   - 114: {fileID: 11409724}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -526,7 +526,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 129762}
   serializedVersion: 2
-  m_Mass: 3
+  m_Mass: 1
   m_Drag: 0.2
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -562,10 +562,10 @@ MonoBehaviour:
   throwSound: {fileID: 0}
   grabBox: {fileID: 0}
   holdOffset: {x: 0, y: 0.2, z: 1.1}
-  throwForce: {x: 0, y: 12, z: 18}
+  throwForce: {x: 0, y: 3, z: 80}
   rotateToBlockSpeed: 3
   checkRadius: 0.5
-  weightChange: 0.3
+  weightChange: 0.1
   holdingBreakForce: 45
   holdingBreakTorque: 45
   animator: {fileID: 0}
@@ -602,16 +602,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerInput: {fileID: 11440290}
   head: {fileID: 484432}
-  projectile: {fileID: 171512, guid: 35bb1b2b246f2924c9e37e30f454c7ee, type: 2}
   timeBetweenShots: 0.1
-  jumpPower: 6000
   drag: {fileID: 0}
-  sizer: {fileID: 0}
-  rebinder: {fileID: 0}
   lastCheckpoint: {fileID: 0}
   DistanceToTarget: 0
   currentSpeed: {x: 0, y: 0, z: 0}
-  sidescroller: 0
   mainCam: {fileID: 0}
   floorChecks: {fileID: 499104}
   animator: {fileID: 0}
@@ -627,7 +622,7 @@ MonoBehaviour:
   slopeLimit: 40
   slideAmount: 35
   movingPlatformFriction: 7.7
-  jumpForce: {x: 0, y: 30, z: 0}
+  jumpForce: {x: 0, y: 10, z: 0}
   jumpLeniancy: 30
   onEnemyBounce: 0
 --- !u!114 &11479634
