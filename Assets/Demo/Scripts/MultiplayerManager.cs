@@ -34,6 +34,9 @@ public class MultiplayerManager : MonoBehaviour
 
 	public StartGameEvent onStartGame;
 
+    private AudioSource aSource;
+    public AudioClip menuMusic;
+
     public class PlayerInfo
 	{
 		public PlayerHandle playerHandle;
@@ -83,6 +86,16 @@ public class MultiplayerManager : MonoBehaviour
         playerPrefabs.Add((GameObject)Resources.Load("Red_Wizard"));
         playerPrefabs.Add((GameObject)Resources.Load("Yellow_Wizard"));
         playerPrefabs.Add((GameObject)Resources.Load("Blue_Wizard"));
+
+        aSource = GetComponent<AudioSource>();
+
+        if (menuMusic)
+        {
+            Debug.Log("Play MenuMusic");
+            aSource.volume = 1;
+            aSource.clip = menuMusic;
+            aSource.Play();
+        }
     }
 
     public void Update()
@@ -229,13 +242,13 @@ public class MultiplayerManager : MonoBehaviour
 
             GameObject playerModel = (GameObject)Instantiate(playerPrefabs[i], spawnTransform.position, spawnTransform.rotation);
             playerModel.transform.parent = player.gameObject.transform;
+
         }
 		
 		if (onStartGame != null)
 			onStartGame.Invoke();
 		
 		gameObject.SetActive(false);
-	}
-
+    }
 }
 
