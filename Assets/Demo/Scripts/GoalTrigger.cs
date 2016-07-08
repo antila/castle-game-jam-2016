@@ -22,7 +22,8 @@ public class GoalTrigger : MonoBehaviour
     }
 
     void UpdateTimerText() {
-        hud.topLeftText.text = "RUN TIME: " + Mathf.Floor(timer);
+        if (hud)
+            hud.topLeftText.text = "RUN TIME: " + Mathf.Floor(timer);
     }
 
     void Update() {
