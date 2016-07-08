@@ -7,10 +7,10 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: stonelight
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 4800000, guid: 34a95dd02b84ee748a5fa3a03768e94e, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 2000
   stringTagMap: {}
   m_SavedProperties:
     serializedVersion: 2
@@ -127,6 +127,22 @@ Material:
         first:
           name: _Metallic
         second: 0
+      data:
+        first:
+          name: _yPosLow
+        second: 0
+      data:
+        first:
+          name: _yPosHigh
+        second: 28.13
+      data:
+        first:
+          name: _GradientStrength
+        second: 1
+      data:
+        first:
+          name: _EmissiveStrengh
+        second: 0.1
     m_Colors:
       data:
         first:
@@ -136,3 +152,19 @@ Material:
         first:
           name: _Color
         second: {r: 0.28235295, g: 0.30980393, b: 0.3529412, a: 1}
+      data:
+        first:
+          name: _ColorLow
+        second: {r: 0.16403548, g: 0.20604455, b: 0.27205884, a: 1}
+      data:
+        first:
+          name: _ColorHigh
+        second: {r: 0.33574829, g: 0.35959128, b: 0.39705884, a: 1}
+      data:
+        first:
+          name: _ColorX
+        second: {r: 0.102941155, g: 0.016652243, b: 0.016652243, a: 1}
+      data:
+        first:
+          name: _ColorY
+        second: {r: 0, g: 0.027332673, b: 0.08088237, a: 1}
