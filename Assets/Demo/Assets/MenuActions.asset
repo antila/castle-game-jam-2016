@@ -35,6 +35,7 @@ MonoBehaviour:
   - {fileID: 11439776}
   - {fileID: 11476686}
   - {fileID: 11460658}
+  - {fileID: 11489320}
   m_ControlSchemes:
   - m_Name: KeyboardMouse
     m_SerializableDeviceTypes:
@@ -122,6 +123,13 @@ MonoBehaviour:
       sensitivity: 1000
       snap: 1
       primaryIsButtonAxis: 0
+    - sources: []
+      deadZone: 0.3
+      buttonAxisSources: []
+      gravity: 1000
+      sensitivity: 1000
+      snap: 1
+      primaryIsButtonAxis: 0
   - m_Name: Gamepad
     m_SerializableDeviceTypes:
     - m_TypeName: UnityEngine.InputNew.Gamepad, Assembly-CSharp, Version=0.0.0.0,
@@ -175,6 +183,23 @@ MonoBehaviour:
     - sources: []
       deadZone: 0.3
       buttonAxisSources: []
+      gravity: 1000
+      sensitivity: 1000
+      snap: 1
+      primaryIsButtonAxis: 0
+    - sources: []
+      deadZone: 0.3
+      buttonAxisSources:
+      - negative:
+          controlIndex: 15
+          deviceType:
+            m_TypeName: UnityEngine.InputNew.Gamepad, Assembly-CSharp, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+        positive:
+          controlIndex: 14
+          deviceType:
+            m_TypeName: UnityEngine.InputNew.Gamepad, Assembly-CSharp, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
       gravity: 1000
       sensitivity: 1000
       snap: 1
@@ -251,4 +276,22 @@ MonoBehaviour:
     componentControlIndices: 
     controlType: 2
     name: MoveY
+    defaultValue: 0
+--- !u!114 &11489320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eba7b4b2e3ea134991ccbff5f47c2c8, type: 3}
+  m_Name: Rotate
+  m_EditorClassIdentifier: 
+  m_ActionMap: {fileID: 11400000}
+  m_ActionIndex: 5
+  m_ControlData:
+    componentControlIndices: 
+    controlType: 0
+    name: Rotate
     defaultValue: 0

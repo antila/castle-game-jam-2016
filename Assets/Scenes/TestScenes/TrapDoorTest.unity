@@ -25,7 +25,7 @@ RenderSettings:
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 0
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 6344b3960b0ad7046a5d9d6d0d6075ef, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -438,7 +438,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: eb572b57293d24315994d77ab8406c84, type: 2}
+  - {fileID: 2100000, guid: 1032d41f900276c40a9dd24f55b7d420, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -729,7 +729,7 @@ MonoBehaviour:
   trapPrefab: {fileID: 11454376, guid: 12c35ab9dae39bb478d4e754d21ed8a2, type: 2}
   boxSpawner: {fileID: 1204745089}
   gridSize: 8
-  trapSpace: 12.5
+  trapSpace: 11
   roundTime: 5
   minTrapsActivated: 3
   maxTrapsActivated: 5

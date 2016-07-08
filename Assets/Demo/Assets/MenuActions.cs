@@ -10,4 +10,5 @@ public class MenuActions : ActionMapInput {
 	public AxisInputControl @moveX { get { return (AxisInputControl)this[2]; } }
 	public AxisInputControl @moveY { get { return (AxisInputControl)this[3]; } }
 	public Vector2InputControl @move { get { return (Vector2InputControl)this[4]; } }
+	public ButtonInputControl @rotate { get { return (ButtonInputControl)this[5]; } }
 }
