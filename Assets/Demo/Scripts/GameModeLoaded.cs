@@ -19,7 +19,7 @@ public class GameModeLoaded : MonoBehaviour {
     public bool gameOver = false;
 
     // Use this for initialization
-    void Awake () {
+    void Start () {
        globalController = (GlobalControl)FindObjectOfType(typeof(GlobalControl));
         if (gameTime > 0) {
             isRunning = true;
@@ -31,7 +31,7 @@ public class GameModeLoaded : MonoBehaviour {
         } else {
             FindObjectOfType<MultiplayerManager>().spawnPositions = spawnPositions;
         }
-	}
+    }
 
     public void RoundEnd() {
         if (globalController) {
@@ -54,7 +54,6 @@ public class GameModeLoaded : MonoBehaviour {
         if (isRunning) {
             gameTime -= Time.deltaTime;
             if (gameOver || gameTime < 0) {
-                Debug.LogError("GAME OVER!!!");
                 isRunning = false;
                 gameOver = false;
                 RoundEnd();

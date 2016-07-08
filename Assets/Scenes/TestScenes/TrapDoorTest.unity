@@ -151,6 +151,7 @@ Transform:
   - {fileID: 1493127936}
   - {fileID: 1533279645}
   - {fileID: 1579837685}
+  - {fileID: 1204745088}
   m_Father: {fileID: 0}
   m_RootOrder: 2
 --- !u!1 &576338982
@@ -267,6 +268,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 494993440}
   m_RootOrder: 0
+--- !u!4 &1204745088 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 470224, guid: d5c0cabcd96a0d4418193e6af40ca4d5, type: 2}
+  m_PrefabInternal: {fileID: 1800790671}
+--- !u!114 &1204745089 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11494948, guid: d5c0cabcd96a0d4418193e6af40ca4d5,
+    type: 2}
+  m_PrefabInternal: {fileID: 1800790671}
+  m_Script: {fileID: 11500000, guid: 4ac7e4cb45fbb524cbbc42efc06a9249, type: 3}
 --- !u!1 &1370870492
 GameObject:
   m_ObjectHideFlags: 0
@@ -338,6 +349,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tagToDestroy: Player
+  minAliveAmount: 1
   callback:
     m_PersistentCalls:
       m_Calls:
@@ -539,6 +551,76 @@ Transform:
   m_Children: []
   m_Father: {fileID: 494993440}
   m_RootOrder: 3
+--- !u!1001 &1800790671
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 528578112}
+    m_Modifications:
+    - target: {fileID: 470224, guid: d5c0cabcd96a0d4418193e6af40ca4d5, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 470224, guid: d5c0cabcd96a0d4418193e6af40ca4d5, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 470224, guid: d5c0cabcd96a0d4418193e6af40ca4d5, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 470224, guid: d5c0cabcd96a0d4418193e6af40ca4d5, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 470224, guid: d5c0cabcd96a0d4418193e6af40ca4d5, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 470224, guid: d5c0cabcd96a0d4418193e6af40ca4d5, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 470224, guid: d5c0cabcd96a0d4418193e6af40ca4d5, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 470224, guid: d5c0cabcd96a0d4418193e6af40ca4d5, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11494948, guid: d5c0cabcd96a0d4418193e6af40ca4d5, type: 2}
+      propertyPath: spawnForce.z
+      value: -20
+      objectReference: {fileID: 0}
+    - target: {fileID: 11494948, guid: d5c0cabcd96a0d4418193e6af40ca4d5, type: 2}
+      propertyPath: spawnRandomJitter.z
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 11494948, guid: d5c0cabcd96a0d4418193e6af40ca4d5, type: 2}
+      propertyPath: spawnRandomJitter.x
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 11494948, guid: d5c0cabcd96a0d4418193e6af40ca4d5, type: 2}
+      propertyPath: spawnForce.x
+      value: -20
+      objectReference: {fileID: 0}
+    - target: {fileID: 158868, guid: d5c0cabcd96a0d4418193e6af40ca4d5, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11494948, guid: d5c0cabcd96a0d4418193e6af40ca4d5, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11494948, guid: d5c0cabcd96a0d4418193e6af40ca4d5, type: 2}
+      propertyPath: isActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: d5c0cabcd96a0d4418193e6af40ca4d5, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &2009836735
 GameObject:
   m_ObjectHideFlags: 0
@@ -633,8 +715,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trapPrefab: {fileID: 11454376, guid: 12c35ab9dae39bb478d4e754d21ed8a2, type: 2}
-  gridSize: 10
-  trapSpace: 15
+  boxSpawner: {fileID: 1204745089}
+  gridSize: 8
+  trapSpace: 12.5
   roundTime: 5
   minTrapsActivated: 3
   maxTrapsActivated: 5
