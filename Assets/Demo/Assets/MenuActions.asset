@@ -36,6 +36,7 @@ MonoBehaviour:
   - {fileID: 11476686}
   - {fileID: 11460658}
   - {fileID: 11489320}
+  - {fileID: 11435516}
   m_ControlSchemes:
   - m_Name: KeyboardMouse
     m_SerializableDeviceTypes:
@@ -123,6 +124,17 @@ MonoBehaviour:
       sensitivity: 1000
       snap: 1
       primaryIsButtonAxis: 0
+    - sources:
+      - controlIndex: 13
+        deviceType:
+          m_TypeName: UnityEngine.InputNew.Keyboard, Assembly-CSharp, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+      deadZone: 0.3
+      buttonAxisSources: []
+      gravity: 1000
+      sensitivity: 1000
+      snap: 1
+      primaryIsButtonAxis: 0
     - sources: []
       deadZone: 0.3
       buttonAxisSources: []
@@ -204,7 +216,36 @@ MonoBehaviour:
       sensitivity: 1000
       snap: 1
       primaryIsButtonAxis: 0
+    - sources:
+      - controlIndex: 22
+        deviceType:
+          m_TypeName: UnityEngine.InputNew.Gamepad, Assembly-CSharp, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+      deadZone: 0.3
+      buttonAxisSources: []
+      gravity: 1000
+      sensitivity: 1000
+      snap: 1
+      primaryIsButtonAxis: 0
   m_MapTypeName: MenuActions, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+--- !u!114 &11435516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eba7b4b2e3ea134991ccbff5f47c2c8, type: 3}
+  m_Name: Start
+  m_EditorClassIdentifier: 
+  m_ActionMap: {fileID: 11400000}
+  m_ActionIndex: 6
+  m_ControlData:
+    componentControlIndices: 
+    controlType: 0
+    name: Start
+    defaultValue: 0
 --- !u!114 &11439776
 MonoBehaviour:
   m_ObjectHideFlags: 0
