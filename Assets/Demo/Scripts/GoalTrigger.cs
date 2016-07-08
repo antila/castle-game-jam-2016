@@ -38,12 +38,19 @@ public class GoalTrigger : MonoBehaviour
             times[reachedGoalCount] = timer;
             reachedGoalCount++;
 
-            if (reachedGoalCount == players.Length) {
+            //if (reachedGoalCount == players.Length) {
                 var gameMode = FindObjectOfType<GameModeLoaded>();
                 gameMode.winner = placed[0];
                 gameMode.gameOver = true;
-            }
+            //}
         }
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = new Color(1, 1, 0, 0.5f);
+        Gizmos.matrix = transform.localToWorldMatrix;
+        Gizmos.DrawCube(Vector3.zero, Vector3.one);
     }
 
 }
