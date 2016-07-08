@@ -7,7 +7,6 @@ public class SpawnDestroyer : MonoBehaviour {
     {
        if (other.gameObject.layer == 8) // Spawned
         {
-           Debug.Log("Destroy");
            Destroy(other.gameObject);
        }
     }
