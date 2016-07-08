@@ -32,6 +32,8 @@ public class CharacterInputController
 	public CubeSizer sizer;
 	public RuntimeRebinding rebinder;
 
+    public Transform lastCheckpoint;
+
     /// <summary>
     /// 
     /// 
@@ -404,5 +406,5 @@ public class CharacterInputController
         airPressTime = 0f;
 
         grounded = false;
-    }
+    }    
 }
