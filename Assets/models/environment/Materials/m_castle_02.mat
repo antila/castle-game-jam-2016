@@ -7,10 +7,10 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: m_castle_02
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 4800000, guid: 34a95dd02b84ee748a5fa3a03768e94e, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 2000
   stringTagMap: {}
   m_SavedProperties:
     serializedVersion: 2
@@ -78,6 +78,13 @@ Material:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _SpecGlossMap
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
     m_Floats:
       data:
         first:
@@ -102,7 +109,7 @@ Material:
       data:
         first:
           name: _Glossiness
-        second: 0.5
+        second: 0
       data:
         first:
           name: _BumpScale
@@ -127,6 +134,58 @@ Material:
         first:
           name: _Metallic
         second: 0
+      data:
+        first:
+          name: _yPosLow
+        second: 0
+      data:
+        first:
+          name: _yPosHigh
+        second: 64.1
+      data:
+        first:
+          name: _GradientStrength
+        second: 1
+      data:
+        first:
+          name: _EmissiveStrengh
+        second: 0.01
+      data:
+        first:
+          name: _SkyExponent1
+        second: 8.5
+      data:
+        first:
+          name: _SkyExponent2
+        second: 3
+      data:
+        first:
+          name: _SkyIntensity
+        second: 1
+      data:
+        first:
+          name: _SkyTransparency
+        second: 1
+      data:
+        first:
+          name: _SunIntensity
+        second: 2
+      data:
+        first:
+          name: _SunAlpha
+        second: 550
+      data:
+        first:
+          name: _SunBeta
+        second: 1
+      data:
+        first:
+          name: _SunAzimuth
+        second: 20
+      data:
+        first:
+          name: _SunAltitude
+        second: 38
     m_Colors:
       data:
         first:
@@ -136,3 +195,47 @@ Material:
         first:
           name: _Color
         second: {r: 0.846, g: 0.631962, b: 0.631962, a: 1}
+      data:
+        first:
+          name: _SpecColor
+        second: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+      data:
+        first:
+          name: _ColorLow
+        second: {r: 0.42647058, g: 0.297, b: 0.3254704, a: 1}
+      data:
+        first:
+          name: _ColorHigh
+        second: {r: 0.6397059, g: 0.5221129, b: 0.5221129, a: 1}
+      data:
+        first:
+          name: _ColorX
+        second: {r: 0.7352941, g: 0.5740663, b: 0.4865917, a: 1}
+      data:
+        first:
+          name: _ColorY
+        second: {r: 0.22794116, g: 0.21372372, b: 0.20280059, a: 1}
+      data:
+        first:
+          name: _SunColor
+        second: {r: 1, g: 0.99, b: 0.87, a: 1}
+      data:
+        first:
+          name: _SkyColor1
+        second: {r: 0.37, g: 0.52, b: 0.73, a: 0}
+      data:
+        first:
+          name: _SkyColor2
+        second: {r: 0.89, g: 0.96, b: 1, a: 0}
+      data:
+        first:
+          name: _SkyColor3
+        second: {r: 0.89, g: 0.89, b: 0.89, a: 0}
+      data:
+        first:
+          name: _SunVector
+        second: {r: 0.269, g: 0.615, b: 0.74, a: 0}
+      data:
+        first:
+          name: _BaseScale
+        second: {r: 1, g: 1, b: 1, a: 0}

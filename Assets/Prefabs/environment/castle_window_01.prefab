@@ -10,13 +10,13 @@ GameObject:
   - 4: {fileID: 451108}
   - 33: {fileID: 3328158}
   - 23: {fileID: 2327952}
-  - 64: {fileID: 6482842}
+  - 64: {fileID: 6443102}
   m_Layer: 0
   m_Name: castle_window_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &451108
 Transform:
@@ -24,10 +24,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 131666}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071067}
-  m_LocalPosition: {x: 7.5, y: 8, z: -33.9}
-  m_LocalScale: {x: 0.010000001, y: 0.01, z: 0.010000001}
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 176.62704, y: 81.48432, z: 10.79198}
+  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -42,6 +42,8 @@ MeshRenderer:
   m_ReceiveShadows: 1
   m_Materials:
   - {fileID: 2100000, guid: 82e29a082c26f8243afb3705cafbed1a, type: 2}
+  - {fileID: 2100000, guid: 16d1c0e5fa88c214da3c7ea85b76e865, type: 2}
+  - {fileID: 2100000, guid: b2da27239e6dabf418ee3a9feff2c259, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -64,7 +66,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 131666}
   m_Mesh: {fileID: 4300000, guid: 2a7159e3d0e073b47afc26f213f915ed, type: 3}
---- !u!64 &6482842
+--- !u!64 &6443102
 MeshCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

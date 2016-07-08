@@ -10,13 +10,13 @@ GameObject:
   - 4: {fileID: 489414}
   - 33: {fileID: 3352534}
   - 23: {fileID: 2375642}
-  - 64: {fileID: 6466634}
+  - 64: {fileID: 6459848}
   m_Layer: 0
   m_Name: castle_tower_big_arches
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &489414
 Transform:
@@ -25,7 +25,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 106560}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 128.01492, y: -5.9471063e-17, z: 123.35071}
+  m_LocalPosition: {x: 73.85426, y: 158.84131, z: -1.8}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -41,6 +41,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
+  - {fileID: 2100000, guid: 82e29a082c26f8243afb3705cafbed1a, type: 2}
   - {fileID: 2100000, guid: 16d1c0e5fa88c214da3c7ea85b76e865, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
@@ -64,7 +65,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 106560}
   m_Mesh: {fileID: 4300000, guid: 379ab1f591b15c644a9812647833f797, type: 3}
---- !u!64 &6466634
+--- !u!64 &6459848
 MeshCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

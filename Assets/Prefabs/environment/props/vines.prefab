@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 458734}
   - 33: {fileID: 3379920}
   - 23: {fileID: 2318430}
-  - 64: {fileID: 6440224}
+  - 64: {fileID: 6423472}
   m_Layer: 0
   m_Name: vines
   m_TagString: Untagged
@@ -24,10 +24,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 101494}
-  m_LocalRotation: {x: 0.000066449626, y: 0.00013979035, z: 0.00051135966, w: 0.9999999}
-  m_LocalPosition: {x: 16.3, y: 12.42, z: 31.27}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 98.00708, y: -3.2613826e-17, z: 58.751846}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
-  m_LocalEulerAnglesHint: {x: 0.0075999997, y: 0.015999999, z: 0.058599997}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -42,6 +42,7 @@ MeshRenderer:
   m_ReceiveShadows: 1
   m_Materials:
   - {fileID: 2100000, guid: d690bb682c83ef143bcaf53e31c7fbec, type: 2}
+  - {fileID: 2100000, guid: 4bc6dfd70954b744a9374a328e290bf3, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -64,7 +65,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 101494}
   m_Mesh: {fileID: 4300000, guid: d7dfacb93b96a6d43b5a5e75611d796a, type: 3}
---- !u!64 &6440224
+--- !u!64 &6423472
 MeshCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
