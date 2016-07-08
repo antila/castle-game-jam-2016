@@ -8,10 +8,10 @@ using UnityEngine.Serialization;
 
 public class MultiplayerManager : MonoBehaviour
 {
-	[Serializable]
-	public class StartGameEvent : UnityEvent { }
+    [Serializable]
+    public class StartGameEvent : UnityEvent { }
 
-	public PlayerInput playerPrefab;
+    public PlayerInput playerPrefab;
     public GameObject cameraPrefab;
     public bool isStartScene = false;
 
@@ -19,11 +19,12 @@ public class MultiplayerManager : MonoBehaviour
 
     [Space]
 
-	public ButtonAction joinAction;
-	public ButtonAction leaveAction;
+    public ButtonAction joinAction;
+    public ButtonAction leaveAction;
 
-	[Space]
+    [Space]
 
+    [HideInInspector]
 	public List<Transform> spawnPositions = new List<Transform>();
 
 	[Space]
@@ -210,8 +211,6 @@ public class MultiplayerManager : MonoBehaviour
 				var map = playerInfo.playerHandle.GetActions(actionMapSlot.actionMap);
                 map.active = !actionMapSlot.active;
             }
-
-            
 
 			Transform spawnTransform = spawnPositions[i % spawnPositions.Count];
 
