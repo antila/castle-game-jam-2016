@@ -13,9 +13,19 @@ public class GoalTrigger : MonoBehaviour
     public List<GameObject> placed;
     int reachedGoalCount = 0;
 
+    HUD hud;
+
     public void Start() {
         timer = 0;
+        hud = FindObjectOfType<HUD>();
+        InvokeRepeating("UpdateTimerText", 0.1f, 0.1f);
     }
+
+    void UpdateTimerText() {
+        if (hud)
+            hud.topLeftText.text = "RUN TIME: " + Mathf.Floor(timer);
+    }
+
     void Update() {
         timer += Time.deltaTime;
     }

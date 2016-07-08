@@ -9,7 +9,6 @@ public class ConnectScreen : MonoBehaviour {
     public ScreenManager screenManager;
     public UIScreen nextScreen;
     public Text instructions;
-
     [Serializable]
     public class StatusImages {
         public Image image;
@@ -27,9 +26,12 @@ public class ConnectScreen : MonoBehaviour {
         for (int i = 0; i < statusImages.Count; i++) {
 
             if (Multiplayer.players.Count > 1) {
-                instructions.text = "Press it once more when all players are ready to play.";
+                instructions.text = string.Format("Press {0} when ready\n\n(Press {1} to leave)",
+                                    Multiplayer.startAction.control.GetPrimarySourceName(),
+                                    Multiplayer.leaveAction.control.GetPrimarySourceName());
             } else {
-                instructions.text = "Press Right Trigger or Left Mouse Button to join.";
+                instructions.text = string.Format("Press {0} to join",
+                                    Multiplayer.joinAction.control.GetPrimarySourceName());
             }
 
             if (i <= Multiplayer.players.Count - 1) {
