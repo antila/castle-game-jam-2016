@@ -4,6 +4,13 @@ using System.Collections.Generic;
 using UnityEngine.InputNew;
 
 public class RespawnPlayer : MonoBehaviour {
+    public AudioClip respawnSound;
+    private AudioSource aSource;
+
+    void Start()
+    {
+        aSource = GetComponent<AudioSource>();
+    }
 
     void OnTriggerEnter(Collider other)
     {
@@ -22,6 +29,13 @@ public class RespawnPlayer : MonoBehaviour {
             
             // Reset camera after position
             other.gameObject.GetComponent<PlayerInput>().cameraHandle.GetComponent<FollowCamera>().ResetPosition();
+
+            if (respawnSound)
+            {
+                aSource.volume = 1;
+                aSource.clip = respawnSound;
+                aSource.Play();
+            }
         }
     }
 

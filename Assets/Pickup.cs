@@ -11,6 +11,7 @@ public class Pickup : MonoBehaviour {
 
     public AudioClip pickUpSound;                               //sound when you pickup/grab an object
     public AudioClip throwSound;                                //sound when you throw an object
+    public AudioClip dropSound;
     [HideInInspector]
     public GameObject grabBox;                                  //objects inside this trigger box can be picked up by the player (think of this as your reach)
     public Vector3 holdOffset = new Vector3(0, 0.2f, 1.1f);           //position offset from centre of player, to hold the box (used to be "gap" in old version)
@@ -43,6 +44,7 @@ public class Pickup : MonoBehaviour {
     void Start () {
         m_MapInput = GetComponent<PlayerInput>().GetActions<FirstPersonControls>();
         animator = GetComponentInChildren<Animator>();
+        aSource = GetComponent<AudioSource>();
     }
 	
 	// Update is called once per frame
@@ -172,6 +174,13 @@ public class Pickup : MonoBehaviour {
         //playerMove.rotateSpeed = defRotateSpeed;
         heldObject = null;
         timeOfThrow = Time.time;
+
+        if (dropSound)
+        {
+            aSource.volume = 1;
+            aSource.clip = dropSound;
+            aSource.Play();
+        }
     }
 
     public void ThrowPickup(bool throwIt)

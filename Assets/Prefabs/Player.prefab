@@ -92,6 +92,7 @@ GameObject:
   - 114: {fileID: 11440290}
   - 114: {fileID: 11479634}
   - 114: {fileID: 11409724}
+  - 82: {fileID: 8263976}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -546,6 +547,80 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!82 &8263976
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 129762}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &11409724
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -558,8 +633,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heldObject: {fileID: 0}
-  pickUpSound: {fileID: 0}
-  throwSound: {fileID: 0}
+  timeOfPickup: 0
+  pickUpSound: {fileID: 8300000, guid: 2b22dfaf759f8c14d9223d9d84e7706f, type: 3}
+  throwSound: {fileID: 8300000, guid: 6fa86c87c9ae1eb438e1a7f211d1fbfc, type: 3}
+  dropSound: {fileID: 8300000, guid: 0226717c51aeb89418cfb1550deac132, type: 3}
   grabBox: {fileID: 0}
   holdOffset: {x: 0, y: 0.2, z: 1.1}
   throwForce: {x: 0, y: 3, z: 80}
@@ -570,6 +647,17 @@ MonoBehaviour:
   holdingBreakTorque: 45
   animator: {fileID: 0}
   armsAnimationLayer: 0
+  holdPos: {x: 0, y: 0, z: 0}
+  joint: {fileID: 0}
+  timeOfThrow: 0
+  defRotateSpeed: 0
+  gizmoColor:
+    r: 0
+    g: 0
+    b: 0
+    a: 0
+  aSource: {fileID: 0}
+  objectDefInterpolation: 0
 --- !u!114 &11440290
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -589,6 +677,7 @@ MonoBehaviour:
   - actionMap: {fileID: 11400000, guid: 24548a596fd7f47dfa0d33e0d38d0dbd, type: 2}
     active: 0
     blockSubsequent: 1
+  <cameraHandle>k__BackingField: {fileID: 0}
 --- !u!114 &11461774
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -600,9 +689,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2732bf3ae11598c4aa8073c0d23017df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Rigid: {fileID: 0}
+  m_Rotation: {x: 0, y: 0}
+  m_TimeOfLastShot: 0
   playerInput: {fileID: 11440290}
   head: {fileID: 484432}
   timeBetweenShots: 0.1
+  distToGround: 0
   drag: {fileID: 0}
   lastCheckpoint: {fileID: 0}
   DistanceToTarget: 0
@@ -610,8 +703,8 @@ MonoBehaviour:
   mainCam: {fileID: 0}
   floorChecks: {fileID: 499104}
   animator: {fileID: 0}
-  jumpSound: {fileID: 0}
-  landSound: {fileID: 0}
+  jumpSound: {fileID: 8300000, guid: be5fbf77e1841f84690b72e186182b19, type: 3}
+  landSound: {fileID: 8300000, guid: 35582c6d7afa98b429412af5d3db0862, type: 3}
   accel: 70
   airAccel: 18
   decel: 7.6
@@ -625,6 +718,24 @@ MonoBehaviour:
   jumpForce: {x: 0, y: 10, z: 0}
   jumpLeniancy: 30
   onEnemyBounce: 0
+  onJump: 0
+  grounded: 0
+  floorCheckers: []
+  screenMovementSpace: {x: 0, y: 0, z: 0, w: 0}
+  airPressTime: 0
+  groundedCount: 0
+  curAccel: 0
+  curDecel: 0
+  curRotateSpeed: 0
+  slope: 0
+  direction: {x: 0, y: 0, z: 0}
+  moveDirection: {x: 0, y: 0, z: 0}
+  screenMovementForward: {x: 0, y: 0, z: 0}
+  screenMovementRight: {x: 0, y: 0, z: 0}
+  movingObjSpeed: {x: 0, y: 0, z: 0}
+  rigid: {fileID: 0}
+  aSource: {fileID: 0}
+  lastRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &11479634
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -638,6 +749,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   force: 600
   damping: 6
+  jointTrans: {fileID: 0}
+  dragDepth: 0
 --- !u!136 &13646672
 CapsuleCollider:
   m_ObjectHideFlags: 1

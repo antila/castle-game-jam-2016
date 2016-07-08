@@ -53,6 +53,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3574bdfd45587d49b5e760a4151ca97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  respawnSound: {fileID: 8300000, guid: 29a5974e04ead9f438695bf5baf26407, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
