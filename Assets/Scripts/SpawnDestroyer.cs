@@ -10,4 +10,11 @@ public class SpawnDestroyer : MonoBehaviour {
            Destroy(other.gameObject);
        }
     }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = new Color(0, 0, 1, 0.5f);
+        Gizmos.matrix = transform.localToWorldMatrix;
+        Gizmos.DrawCube(Vector3.zero, Vector3.one);
+    }
 }
