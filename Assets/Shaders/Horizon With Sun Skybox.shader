@@ -1,4 +1,4 @@
-Shader "Skybox/Horizon With Sun Skybox"
+Shader "Custom/Horizon With Sun Skybox"
 {
     Properties
     {
