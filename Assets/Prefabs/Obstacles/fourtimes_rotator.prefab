@@ -102,7 +102,7 @@ HingeJoint:
     targetPosition: 0
   m_UseMotor: 1
   m_Motor:
-    targetVelocity: 160
+    targetVelocity: 360
     force: 100000
     freeSpin: 0
   m_UseLimits: 0
