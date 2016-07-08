@@ -10,8 +10,13 @@ public class GameModeLoaded : MonoBehaviour {
     public GameObject content;
     public List<Transform> spawnPositions = new List<Transform>();
     public GlobalControl globalController;
-    public float gameTime = 0;
+
+    public GameObject winner = null;
+
+    public float gameTime = 300;
     bool isRunning = false;
+
+    public bool gameOver = false;
 
     // Use this for initialization
     void Awake () {
@@ -30,11 +35,17 @@ public class GameModeLoaded : MonoBehaviour {
 
     public void RoundEnd() {
         if (globalController) {
-            globalController.globalMultiplayerManager.players[0].winner = true;
-            globalController.RoundFinished();
+            if (winner == null) {
+                winner = GameObject.FindGameObjectsWithTag("Player")[0];
+            }
+            globalController.RoundFinished(winner);
             globalController.globalMultiplayerManager.gameObject.SetActive(true);
         } else {
-            Debug.Log("Round Ended");
+            if (winner == null)
+            {
+                winner = GameObject.FindGameObjectsWithTag("Player")[0];
+            }
+            Debug.Log("Round Ended, playerHandle " + winner + " won.");
         }
     }
     
@@ -42,8 +53,10 @@ public class GameModeLoaded : MonoBehaviour {
     void Update () {
         if (isRunning) {
             gameTime -= Time.deltaTime;
-            if (gameTime < 0) {
+            if (gameOver || gameTime < 0) {
+                Debug.LogError("GAME OVER!!!");
                 isRunning = false;
+                gameOver = false;
                 RoundEnd();
             }
         }
