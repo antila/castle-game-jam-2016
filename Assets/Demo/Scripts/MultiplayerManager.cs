@@ -36,6 +36,7 @@ public class MultiplayerManager : MonoBehaviour
 
     private AudioSource aSource;
     public AudioClip menuMusic;
+    public AudioClip levelMusic;
 
     public class PlayerInfo
 	{
@@ -161,10 +162,10 @@ public class MultiplayerManager : MonoBehaviour
                 
         }
 
-        if (!gameStarted && isStartScene && connectScreen && startWasPressed && players.Count > 1) {
+        if (!gameStarted && isStartScene && connectScreen && startWasPressed) {
             gameStarted = true;
             connectScreen.ShowGameScreen();
-        } else if (!isStartScene && startWasPressed && players.Count > 1) {
+        } else if (!isStartScene && startWasPressed) {
             StartGame();
         }
 	}
@@ -243,12 +244,34 @@ public class MultiplayerManager : MonoBehaviour
             GameObject playerModel = (GameObject)Instantiate(playerPrefabs[i], spawnTransform.position, spawnTransform.rotation);
             playerModel.transform.parent = player.gameObject.transform;
 
+
         }
 		
 		if (onStartGame != null)
 			onStartGame.Invoke();
 		
 		gameObject.SetActive(false);
+
+        aSource.Stop();
+        Invoke("PlayLevelMusic", 1);
+    }
+
+    void PlayLevelMusic()
+    {
+        if (levelMusic && aSource && aSource.enabled && aSource.isActiveAndEnabled)
+        {
+            Debug.Log("Play levelMusic");
+            aSource.volume = 1;
+            aSource.clip = levelMusic;
+            aSource.Play();
+        } else
+        {
+            aSource.volume = 1;
+            aSource.clip = levelMusic;
+            aSource.Play();
+
+            Invoke("PlayLevelMusic", 1);
+        }
     }
 }
 
