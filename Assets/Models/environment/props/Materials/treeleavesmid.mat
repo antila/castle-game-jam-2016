@@ -7,10 +7,10 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: treeleavesmid
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 4800000, guid: 34a95dd02b84ee748a5fa3a03768e94e, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 2000
   stringTagMap: {}
   m_SavedProperties:
     serializedVersion: 2
@@ -127,6 +127,22 @@ Material:
         first:
           name: _Metallic
         second: 0
+      data:
+        first:
+          name: _yPosLow
+        second: 0
+      data:
+        first:
+          name: _yPosHigh
+        second: 15
+      data:
+        first:
+          name: _GradientStrength
+        second: 1
+      data:
+        first:
+          name: _EmissiveStrengh
+        second: 0.1
     m_Colors:
       data:
         first:
@@ -136,3 +152,19 @@ Material:
         first:
           name: _Color
         second: {r: 0.090992644, g: 0.375, b: 0.31623986, a: 1}
+      data:
+        first:
+          name: _ColorLow
+        second: {r: 0.11176486, g: 0, b: 0.5588235, a: 1}
+      data:
+        first:
+          name: _ColorHigh
+        second: {r: 0.09019608, g: 0.37254903, b: 0.3137255, a: 1}
+      data:
+        first:
+          name: _ColorX
+        second: {r: 0, g: 0, b: 0, a: 1}
+      data:
+        first:
+          name: _ColorY
+        second: {r: 1, g: 1, b: 1, a: 1}
