@@ -12,6 +12,8 @@ public class ConnectScreen : MonoBehaviour {
     [Serializable]
     public class StatusImages {
         public Image image;
+        public Sprite spriteNotReady;
+        public Sprite spriteReady;
         public Color color;
         public Text message;
     }
@@ -35,17 +37,11 @@ public class ConnectScreen : MonoBehaviour {
             }
 
             if (i <= Multiplayer.players.Count - 1) {
-                Color playerColor = statusImages[i].color;
-
                 var player = Multiplayer.players[i];
-
-                statusImages[i].message.text = "READY!";
-                playerColor.a = 1f;
-                statusImages[i].image.color = playerColor;
-
+                statusImages[i].image.sprite = statusImages[i].spriteReady;
             } else {
                 statusImages[i].message.text = "";
-                statusImages[i].image.color = new Color(0.5f,0.5f, 0.5f, 1f);
+                statusImages[i].image.sprite = statusImages[i].spriteNotReady;
             }
         }
     }
