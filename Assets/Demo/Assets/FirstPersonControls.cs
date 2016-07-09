@@ -17,4 +17,5 @@ public class FirstPersonControls : ActionMapInput {
 	public ButtonInputControl @unlockCursor { get { return (ButtonInputControl)this[9]; } }
 	public ButtonInputControl @reconfigure { get { return (ButtonInputControl)this[10]; } }
 	public ButtonInputControl @jump { get { return (ButtonInputControl)this[11]; } }
+	public ButtonInputControl @fireAlt { get { return (ButtonInputControl)this[12]; } }
 }

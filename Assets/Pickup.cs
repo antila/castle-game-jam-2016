@@ -54,7 +54,10 @@ public class Pickup : MonoBehaviour {
             return;
         }
 
-        var grab = m_MapInput.fire.isHeld;
+        var grabPrimary = m_MapInput.fire.isHeld;
+        var grabAlt = m_MapInput.fireAlt.isHeld;
+        bool grab = (grabPrimary || grabAlt);
+
         var jump = m_MapInput.jump.isHeld;
 
         if (!grab && heldObject && Time.time > timeOfPickup + 0.1f)
@@ -99,7 +102,9 @@ public class Pickup : MonoBehaviour {
         bool grab = false;
         if (m_MapInput != null && m_MapInput.fire != null)
         {
-            grab = m_MapInput.fire.isHeld;
+            var grabPrimary = m_MapInput.fire.isHeld;
+            var grabAlt = m_MapInput.fireAlt.isHeld;
+            grab = (grabPrimary || grabAlt);
         }
         
         //if grab is pressed and an object is inside the players "grabBox" trigger
