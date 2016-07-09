@@ -8,16 +8,19 @@ public class GameScreen : MonoBehaviour {
     public Button selectedGame;
     private AudioSource aSource;
     public AudioClip levelMusic;
-
+    bool allowLevelLoad = true;
 	void OnEnable() {
-        selectedGame.Select();	    
+        selectedGame.Select();
+        allowLevelLoad = true;	    
 	}
 
     public void LoadScene(string sceneName)
     {
-        SceneManager.LoadScene(sceneName);
-        Invoke("PlayLevelMusic", 1);
-
+        if (allowLevelLoad) {
+            allowLevelLoad = false;
+            SceneManager.LoadScene(sceneName);
+            Invoke("PlayLevelMusic", 1);
+        }
     }
 	// Update is called once per frame
 	void Update () {
