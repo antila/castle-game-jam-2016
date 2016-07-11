@@ -59,7 +59,6 @@ public class CharacterInputController
     [HideInInspector]
     public Animator animator;                   //object with animation controller on, which you want to animate
 
-    public AudioClip jumpSound;                 //play when jumping
     public AudioClip landSound;                 //play when landing on ground
 
     //movement
@@ -404,13 +403,6 @@ public class CharacterInputController
             return;
         } else
         {
-            if (jumpSound)
-            {
-                aSource.volume = 1;
-                aSource.clip = jumpSound;
-                aSource.Play();
-            }
-
             rigid.velocity = new Vector3(rigid.velocity.x, 0f, rigid.velocity.z);
             rigid.AddRelativeForce(jumpVelocity, ForceMode.Impulse);
             airPressTime = 0f;
