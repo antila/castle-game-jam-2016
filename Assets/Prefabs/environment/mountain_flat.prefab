@@ -10,7 +10,6 @@ GameObject:
   - 4: {fileID: 446778}
   - 33: {fileID: 3302804}
   - 23: {fileID: 2342470}
-  - 64: {fileID: 6426324}
   m_Layer: 0
   m_Name: mountain_flat
   m_TagString: Untagged
@@ -63,18 +62,6 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 109982}
-  m_Mesh: {fileID: 4300000, guid: f8f9d2b5f9ad3c84bb02a002aced2f23, type: 3}
---- !u!64 &6426324
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 109982}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 0
   m_Mesh: {fileID: 4300000, guid: f8f9d2b5f9ad3c84bb02a002aced2f23, type: 3}
 --- !u!1001 &100100000
 Prefab:
