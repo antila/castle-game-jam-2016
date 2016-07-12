@@ -645,7 +645,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: MultiplayerManager+StartGameEvent, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  menuMusic: {fileID: 8300000, guid: abf203bde908d2a43ae3bdc11ce2c9f3, type: 3}
+  menuMusic: {fileID: 8300000, guid: 250415f6706026547ad01211a1508203, type: 3}
   levelMusic: {fileID: 0}
 --- !u!4 &314104356
 Transform:
@@ -684,7 +684,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   Priority: 128
@@ -693,9 +693,9 @@ AudioSource:
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
+  BypassEffects: 1
+  BypassListenerEffects: 1
+  BypassReverbZones: 1
   rolloffCustomCurve:
     serializedVersion: 2
     m_Curve:
