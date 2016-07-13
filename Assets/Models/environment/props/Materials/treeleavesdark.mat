@@ -167,4 +167,4 @@ Material:
       data:
         first:
           name: _ColorY
-        second: {r: 1, g: 1, b: 1, a: 1}
+        second: {r: 0.86609864, g: 0.8666667, b: 0.6627451, a: 1}
