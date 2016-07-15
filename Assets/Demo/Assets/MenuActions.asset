@@ -199,19 +199,13 @@ MonoBehaviour:
       sensitivity: 1000
       snap: 1
       primaryIsButtonAxis: 0
-    - sources: []
+    - sources:
+      - controlIndex: 15
+        deviceType:
+          m_TypeName: UnityEngine.InputNew.Gamepad, Assembly-CSharp, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
       deadZone: 0.3
-      buttonAxisSources:
-      - negative:
-          controlIndex: 15
-          deviceType:
-            m_TypeName: UnityEngine.InputNew.Gamepad, Assembly-CSharp, Version=0.0.0.0,
-              Culture=neutral, PublicKeyToken=null
-        positive:
-          controlIndex: 14
-          deviceType:
-            m_TypeName: UnityEngine.InputNew.Gamepad, Assembly-CSharp, Version=0.0.0.0,
-              Culture=neutral, PublicKeyToken=null
+      buttonAxisSources: []
       gravity: 1000
       sensitivity: 1000
       snap: 1
