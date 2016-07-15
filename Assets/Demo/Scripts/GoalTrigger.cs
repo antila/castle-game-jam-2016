@@ -32,17 +32,14 @@ public class GoalTrigger : MonoBehaviour
 
     public void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == tagToReachGoal) {
-            var players = GameObject.FindGameObjectsWithTag("Player");
- 
+            
             placed.Add(other.gameObject);
             times[reachedGoalCount] = timer;
             reachedGoalCount++;
 
-            //if (reachedGoalCount == players.Length) {
-                var gameMode = FindObjectOfType<GameModeLoaded>();
-                gameMode.winner = placed[0];
-                gameMode.gameOver = true;
-            //}
+            var gameMode = FindObjectOfType<GameModeLoaded>();
+            gameMode.winner = placed[0];
+            gameMode.gameOver = true;
         }
     }
 

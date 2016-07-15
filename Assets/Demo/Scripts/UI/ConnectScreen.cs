@@ -37,7 +37,6 @@ public class ConnectScreen : MonoBehaviour {
             }
 
             if (i <= Multiplayer.players.Count - 1) {
-                var player = Multiplayer.players[i];
                 statusImages[i].image.sprite = statusImages[i].spriteReady;
             } else {
                 statusImages[i].message.text = "";

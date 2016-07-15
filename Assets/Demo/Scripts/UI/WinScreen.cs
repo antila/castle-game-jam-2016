@@ -13,6 +13,7 @@ public class WinScreen : MonoBehaviour {
     // Use this for initialization
     void OnEnable() {
         StartCoroutine(ReleaseControls());
+        MusicPlayer.instance.PlayTrack("menu");
     }
     void OnDisable()
     {

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class UIScreen : MonoBehaviour {
@@ -10,6 +11,8 @@ public class UIScreen : MonoBehaviour {
 
     Vector3 scaleStart;
     Vector3 scaleEnd;
+
+    public Button selectedButtonOnActivation;
 
     void Start() {
         foreach (Transform child in transform) {
@@ -44,6 +47,10 @@ public class UIScreen : MonoBehaviour {
 
         if (!activate) {
             gameObject.SetActive(false);
+        } else {
+            if (selectedButtonOnActivation) {
+                selectedButtonOnActivation.Select();
+            }
         }
     }
     // Use this for initialization

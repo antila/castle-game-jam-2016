@@ -34,9 +34,6 @@ public class MultiplayerManager : MonoBehaviour
 
 	public StartGameEvent onStartGame;
 
-    private AudioSource aSource;
-    public AudioClip menuMusic;
-    public AudioClip levelMusic;
 
     public class PlayerInfo
 	{
@@ -88,15 +85,6 @@ public class MultiplayerManager : MonoBehaviour
         playerPrefabs.Add((GameObject)Resources.Load("Yellow_Wizard"));
         playerPrefabs.Add((GameObject)Resources.Load("Blue_Wizard"));
 
-        aSource = GetComponent<AudioSource>();
-
-        if (menuMusic)
-        {
-            Debug.Log("Play MenuMusic");
-            aSource.volume = 1;
-            aSource.clip = menuMusic;
-            aSource.Play();
-        }
     }
 
     public void Update()
@@ -251,27 +239,7 @@ public class MultiplayerManager : MonoBehaviour
 			onStartGame.Invoke();
 		
 		gameObject.SetActive(false);
-
-        aSource.Stop();
-        Invoke("PlayLevelMusic", 1);
     }
 
-    void PlayLevelMusic()
-    {
-        if (levelMusic && aSource && aSource.enabled && aSource.isActiveAndEnabled)
-        {
-            Debug.Log("Play levelMusic");
-            aSource.volume = 1;
-            aSource.clip = levelMusic;
-            aSource.Play();
-        } else
-        {
-            aSource.volume = 1;
-            aSource.clip = levelMusic;
-            aSource.Play();
-
-            Invoke("PlayLevelMusic", 1);
-        }
-    }
 }
 
