@@ -87,11 +87,22 @@ public class MultiplayerManager : MonoBehaviour
 
     }
 
+    private bool HasMouseMoved()
+    {
+        //I feel dirty even doing this 
+        return (Input.GetAxis("Mouse X") != 0) || (Input.GetAxis("Mouse Y") != 0);
+    }
+
     public void Update()
 	{
-        if (globalHandle.GetActions<MenuActions>().move.vector2.x != 0)
-        {
-            Screen.lockCursor = true;
+        if (globalHandle.GetActions<MenuActions>().move.vector2.x != 0) {
+            UnityEngine.Cursor.lockState = CursorLockMode.Locked;
+            UnityEngine.Cursor.visible = false;
+        }
+
+        if (HasMouseMoved()) {
+            UnityEngine.Cursor.lockState = CursorLockMode.None;
+            UnityEngine.Cursor.visible = true;
         }
 
         connectScreen = (ConnectScreen)FindObjectOfType(typeof(ConnectScreen));
