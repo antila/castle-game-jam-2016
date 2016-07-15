@@ -7,13 +7,13 @@ public class Checkpoints : MonoBehaviour
     public Color activeColor = Color.green; //color when checkpoint is activated
     public float activeColorOpacity = 0.4f; //opacity when checkpoint is activated
 
-    private GameObject[] checkpoints;
-    private AudioSource aSource;
+    //private GameObject[] checkpoints;
+    //private AudioSource aSource;
 
     //setup
     void Awake()
     {
-        aSource = GetComponent<AudioSource>();
+        //aSource = GetComponent<AudioSource>();
         if (tag != "Respawn")
         {
             tag = "Respawn";
@@ -24,7 +24,7 @@ public class Checkpoints : MonoBehaviour
     //more setup
     void Start()
     {
-        checkpoints = GameObject.FindGameObjectsWithTag("Respawn");
+        //checkpoints = GameObject.FindGameObjectsWithTag("Respawn");
     }
 
     //set checkpoint
