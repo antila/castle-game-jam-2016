@@ -6,6 +6,7 @@ public class ScreenManager : MonoBehaviour {
 
     public UIScreen previousScreen;
     public UIScreen activeScreen;
+    public UIScreen ingameMenuScreen;
 
     PlayerHandle globalHandle;
 
@@ -29,6 +30,16 @@ public class ScreenManager : MonoBehaviour {
         previousScreen.Disable();
         activeScreen.gameObject.SetActive(true);
         activeScreen.Enable();
+    }
+
+    public void IngameMenu() {
+        if (!ingameMenuScreen.isActiveAndEnabled) {
+            ChangeScreen(ingameMenuScreen);
+        }
+    }
+
+    public void Quit() {
+        Application.Quit();
     }
 
     void Update() {

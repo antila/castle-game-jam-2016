@@ -257,8 +257,6 @@ public class CharacterInputController
         screenMovementForward = screenMovementSpace * Vector3.forward;
         screenMovementRight = screenMovementSpace * Vector3.right;
 
-
-
         var move = m_MapInput.move.vector2;
         //get movement input, set direction to move in
         float v = move.y;
@@ -281,7 +279,10 @@ public class CharacterInputController
         if (m_MapInput.jump.isHeld) {
             JumpCalculations();
         }*/
-
+        if (m_MapInput.menu.wasJustPressed) {
+            FindObjectOfType<ScreenManager>().IngameMenu();
+        }
+        
     }
 
     //apply correct player movement (fixedUpdate for physics calculations)
