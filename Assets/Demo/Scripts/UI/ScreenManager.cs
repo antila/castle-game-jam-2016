@@ -6,7 +6,11 @@ public class ScreenManager : MonoBehaviour {
 
     public UIScreen previousScreen;
     public UIScreen activeScreen;
-    public UIScreen ingameMenuScreen;
+
+    [Space]
+
+    public UIScreen quitScreen;
+    public UIScreen ingameScreen;
 
     PlayerHandle globalHandle;
 
@@ -30,26 +34,34 @@ public class ScreenManager : MonoBehaviour {
         previousScreen.Disable();
         activeScreen.gameObject.SetActive(true);
         activeScreen.Enable();
+
+        if(ingameScreen.isActiveAndEnabled) {
+            var mouse = Mouse.current;
+            if (mouse != null)
+                mouse.cursor.isLocked = true;
+        }
+
     }
 
     public void IngameMenu() {
-        if (!ingameMenuScreen.isActiveAndEnabled) {
-            ChangeScreen(ingameMenuScreen);
+        if (!quitScreen.isActiveAndEnabled) {
+            ChangeScreen(quitScreen);
         }
     }
+
 
     public void Quit() {
         Application.Quit();
     }
 
     void Update() {
-        if (HasGamepadMoved())
+        if (!ingameScreen.isActiveAndEnabled && HasGamepadMoved())
         {
             UnityEngine.Cursor.lockState = CursorLockMode.Locked;
             UnityEngine.Cursor.visible = false;
         }
 
-        if (HasMouseMoved())
+        if (!ingameScreen.isActiveAndEnabled && HasMouseMoved())
         {
             UnityEngine.Cursor.lockState = CursorLockMode.None;
             UnityEngine.Cursor.visible = true;

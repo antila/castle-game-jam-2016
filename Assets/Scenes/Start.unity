@@ -500,7 +500,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousScreen: {fileID: 0}
   activeScreen: {fileID: 826481122}
-  ingameMenuScreen: {fileID: 320426013}
+  quitScreen: {fileID: 320426013}
+  ingameScreen: {fileID: 1069478604}
 --- !u!82 &243363755
 AudioSource:
   m_ObjectHideFlags: 0
