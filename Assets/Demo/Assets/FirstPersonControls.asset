@@ -136,7 +136,7 @@ MonoBehaviour:
       snap: 1
       primaryIsButtonAxis: 0
     - sources:
-      - controlIndex: 13
+      - controlIndex: 27
         deviceType:
           m_TypeName: UnityEngine.InputNew.Keyboard, Assembly-CSharp, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
@@ -157,11 +157,7 @@ MonoBehaviour:
       sensitivity: 1000
       snap: 1
       primaryIsButtonAxis: 0
-    - sources:
-      - controlIndex: 27
-        deviceType:
-          m_TypeName: UnityEngine.InputNew.Keyboard, Assembly-CSharp, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
+    - sources: []
       deadZone: 0.3
       buttonAxisSources: []
       gravity: 1000

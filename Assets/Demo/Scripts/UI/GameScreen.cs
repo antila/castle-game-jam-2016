@@ -16,7 +16,7 @@ public class GameScreen : MonoBehaviour {
         if (allowLevelLoad) {
             allowLevelLoad = false;
             SceneManager.LoadScene(sceneName);
-        }
+       }
     }
 	// Update is called once per frame
 	void Update () {
