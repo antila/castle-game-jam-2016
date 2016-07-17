@@ -29,8 +29,6 @@ public class CharacterInputController
 
 	public float timeBetweenShots = 0.5f;
 
-	private float distToGround;
-
     [HideInInspector]
     public DragRigidbody drag;
 
@@ -81,13 +79,13 @@ public class CharacterInputController
     private int onJump;
     private bool grounded;
     private Transform[] floorCheckers;
-    private Quaternion screenMovementSpace;
-    private float airPressTime, groundedCount, curAccel, curDecel, curRotateSpeed, slope;
-    private Vector3 direction, moveDirection, screenMovementForward, screenMovementRight, movingObjSpeed;
+
+    [HideInInspector]
+    private float curAccel, curDecel, curRotateSpeed, slope;
+    private Vector3 direction, moveDirection, movingObjSpeed;
 
     //private CharacterMotor characterMotor;
     private Rigidbody rigid;
-    private AudioSource aSource;
 
     public void Start()
 	{
@@ -99,21 +97,10 @@ public class CharacterInputController
 
         LockCursor(true);
 
-		/*if (!playerInput.handle.global) {
-			transform.Find("Canvas/Virtual Joystick").gameObject.SetActive(false);
-		}*/
-
-		distToGround = GetComponent<Collider>().bounds.extents.y;
-
-        lastRotation = new Quaternion(0, 0, 0, 1);
-        
-        //Debug.Log(playerInput.handle.cameraHandle);
         mainCam = GetComponent<PlayerInput>().transform;
 
         animator = GetComponentInChildren<Animator>();
     }
-
-    private Quaternion lastRotation;
 
     void Awake()
     {
@@ -152,7 +139,7 @@ public class CharacterInputController
         }
         //usual setup
         rigid = GetComponent<Rigidbody>();
-        aSource = GetComponent<AudioSource>();
+
         //gets child objects of floorcheckers, and puts them in an array
         //later these are used to raycast downward and see if we are on the ground
         floorCheckers = new Transform[floorChecks.childCount];
@@ -198,8 +185,7 @@ public class CharacterInputController
         Vector3 newDir = lookDir - characterPos;
         Quaternion dirQ = Quaternion.LookRotation(newDir);
         Quaternion slerp = Quaternion.Slerp(transform.rotation, dirQ, turnSpeed * Time.deltaTime);
-        
-        //transform.rotation = newDir;
+
         rigid.MoveRotation(slerp);
 
         //Debug.DrawRay(rigid.position, dirQ, Color.blue);
@@ -252,37 +238,17 @@ public class CharacterInputController
         curDecel = (grounded) ? decel : airDecel;
         curRotateSpeed = (grounded) ? rotateSpeed : airRotateSpeed;
 
-        //get movement axis relative to camera
-        screenMovementSpace = Quaternion.Euler(0, mainCam.eulerAngles.y, 0);
-        screenMovementForward = screenMovementSpace * Vector3.forward;
-        screenMovementRight = screenMovementSpace * Vector3.right;
-
         var move = m_MapInput.move.vector2;
         //get movement input, set direction to move in
         float v = move.y;
         float h = move.x;
 
-        //Debug.Log(screenMovementSpace);
-
-        //only apply vertical input to movemement, if player is not sidescroller
-        //if (!sidescroller)
-
-        //else
-        //    direction = Vector3.right * h;
-
-        //direction = (screenMovementForward * v) + (screenMovementRight * h);
-        //moveDirection = transform.position + direction;
-        
         direction = playerInput.cameraHandle.transform.TransformDirection(new Vector3(h, 0, v)) ; 
         moveDirection = transform.position + direction; // new Vector3(velocity.x, m_Rigid.velocity.y, velocity.z);
-        /*
-        if (m_MapInput.jump.isHeld) {
-            JumpCalculations();
-        }*/
+
         if (m_MapInput.menu.wasJustPressed) {
             FindObjectOfType<ScreenManager>().IngameMenu();
-        }
-        
+        }        
     }
 
     //apply correct player movement (fixedUpdate for physics calculations)
@@ -375,17 +341,6 @@ public class CharacterInputController
     //jumping
     private void JumpCalculations()
     {
-        //Debug.Log(grounded);
-        //play landing sound
-        /*
-        if (groundedCount < 0.25 && groundedCount != 0 && !GetComponent<AudioSource>().isPlaying && landSound && GetComponent<Rigidbody>().velocity.y < 1)
-        {
-            aSource.volume = Mathf.Abs(GetComponent<Rigidbody>().velocity.y) / 40;
-            aSource.clip = landSound;
-            aSource.Play();
-        }
-        */
-
         //if were on ground within slope limit
         if (grounded && slope < slopeLimit)
         {
@@ -406,7 +361,6 @@ public class CharacterInputController
         {
             rigid.velocity = new Vector3(rigid.velocity.x, 0f, rigid.velocity.z);
             rigid.AddRelativeForce(jumpVelocity, ForceMode.Impulse);
-            airPressTime = 0f;
 
             grounded = false;
         }

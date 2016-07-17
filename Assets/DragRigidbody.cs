@@ -100,7 +100,6 @@ public class DragRigidbody : MonoBehaviour
     private JointDrive NewJointDrive(float force, float damping)
     {
         JointDrive drive = new JointDrive();
-        drive.mode = JointDriveMode.Position;
         drive.positionSpring = force;
         drive.positionDamper = damping;
         drive.maximumForce = Mathf.Infinity;
