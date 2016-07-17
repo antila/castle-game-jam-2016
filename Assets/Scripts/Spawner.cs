@@ -37,6 +37,7 @@ public class Spawner : MonoBehaviour
             GameObject spawn = (GameObject)Instantiate(item, transform.position, nextRotation);
             spawn.layer = 8; // Spawned
             var force = spawnForce + (spawnRandomJitter * Random.Range(0f, 1f));
+            spawn.transform.parent = transform;
 
             Rigidbody r = spawn.GetComponent<Rigidbody>();
             r.AddRelativeForce(force, ForceMode.VelocityChange);
