@@ -17,10 +17,15 @@ public class FollowCamera : MonoBehaviour
 
     FirstPersonControls m_MapInput;
 
+    public bool isMouseControls = false;
+
     void Start()
     {
         m_MapInput = targetPlayer.GetComponent<CharacterInputController>().m_MapInput;
-        
+        if (m_MapInput.controlScheme.name == "KeyboardMouse")
+        {
+            isMouseControls = true;
+        }
     }
 
     public void ResetPosition()
@@ -61,7 +66,13 @@ public class FollowCamera : MonoBehaviour
 
         Vector3 lookAt = new Vector3(target.position.x, currentHeight, target.position.z);
 
-        transform.RotateAround(lookAt, Vector3.up, m_MapInput.look.vector2.x * 200 * Time.deltaTime);
+        float lookVector = (m_MapInput.look.vector2.x * 200);
+        if (isMouseControls)
+        {
+            lookVector = (lookVector * 0.2f);
+        }
+
+        transform.RotateAround(lookAt, Vector3.up, lookVector * Time.deltaTime);
 
         float distance = Vector3.Distance(target.position, transform.position);
         if (distance < 10f && distance > 6f)
