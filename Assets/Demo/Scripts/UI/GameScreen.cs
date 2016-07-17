@@ -6,8 +6,9 @@ using UnityEngine.SceneManagement;
 public class GameScreen : MonoBehaviour {
 
     bool allowLevelLoad = true;
+    string nextLevel;
 
-	void OnEnable() {
+    void OnEnable() {
         allowLevelLoad = true;	    
 	}
 
@@ -15,11 +16,14 @@ public class GameScreen : MonoBehaviour {
     {
         if (allowLevelLoad) {
             allowLevelLoad = false;
-            SceneManager.LoadScene(sceneName);
+            nextLevel = sceneName;
+
+            Invoke("LoadNextLevel", 0.33f);
        }
     }
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
+    private void LoadNextLevel()
+    {
+        SceneManager.LoadScene(nextLevel);
+    }
 }
