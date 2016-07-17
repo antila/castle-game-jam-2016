@@ -17,9 +17,16 @@ public class ReloadScene : MonoBehaviour {
         if (allowLevelLoad)
         {
             allowLevelLoad = false;
-            globalController = (GlobalControl)FindObjectOfType(typeof(GlobalControl));
-            globalController.globalMultiplayerManager.gameObject.SetActive(true);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+
+            Invoke("LoadScene", 0.33f);
         }
+    }
+
+    private void LoadScene()
+    {
+        globalController = (GlobalControl)FindObjectOfType(typeof(GlobalControl));
+        globalController.globalMultiplayerManager.gameObject.SetActive(true);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
