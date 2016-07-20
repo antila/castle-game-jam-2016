@@ -91,7 +91,11 @@ PlayerSettings:
     Others: 0
   bundleIdentifier: com.unity3d.newinputsystemprototype
   bundleVersion: 1.0
-  preloadedAssets: []
+  preloadedAssets:
+  - {fileID: 2800000, guid: 9ebbe6e05ec1e65429f411bedbfbd2d4, type: 3}
+  - {fileID: 2800000, guid: c921bbe0d955a74408869b6cd2dbea49, type: 3}
+  - {fileID: 2800000, guid: 6cb202be13c761b4e83d148e3e2c2ad6, type: 3}
+  - {fileID: 2800000, guid: 7281471014bf6094c8504512bf2aaef9, type: 3}
   metroEnableIndependentInputSource: 0
   metroEnableLowLatencyPresentationAPI: 0
   xboxOneDisableKinectGpuReservation: 0
