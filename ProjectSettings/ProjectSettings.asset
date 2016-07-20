@@ -84,9 +84,9 @@ PlayerSettings:
   wiiUAllowScreenCapture: 1
   wiiUControllerCount: 0
   m_SupportedAspectRatios:
-    4:3: 0
-    5:4: 0
-    16:10: 0
+    4:3: 1
+    5:4: 1
+    16:10: 1
     16:9: 1
     Others: 0
   bundleIdentifier: com.unity3d.newinputsystemprototype
@@ -170,13 +170,13 @@ PlayerSettings:
     height: 180
     banner: {fileID: 0}
   androidGamepadSupportLevel: 0
-  resolutionDialogBanner: {fileID: 2800000, guid: 65ec7f5800f0c5d4bb7d44112ff60a65,
+  resolutionDialogBanner: {fileID: 2800000, guid: 1ae0bb619d6d89e4697096ac1cf63b91,
     type: 3}
   m_BuildTargetIcons:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 0}
+      m_Icon: {fileID: 2800000, guid: 894ecfd5d0934f04fad51a88fd3f2db2, type: 3}
       m_Width: 128
       m_Height: 128
   m_BuildTargetBatching: []
