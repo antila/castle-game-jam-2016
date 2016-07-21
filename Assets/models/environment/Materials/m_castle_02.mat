@@ -202,11 +202,11 @@ Material:
       data:
         first:
           name: _ColorLow
-        second: {r: 0.42647058, g: 0.297, b: 0.3254704, a: 1}
+        second: {r: 0.6838235, g: 0.59019655, b: 0.5480645, a: 1}
       data:
         first:
           name: _ColorHigh
-        second: {r: 0.6397059, g: 0.5221129, b: 0.5221129, a: 1}
+        second: {r: 1, g: 0.9191176, b: 0.9191176, a: 1}
       data:
         first:
           name: _ColorX
