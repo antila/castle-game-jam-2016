@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: piecrust
-  m_Shader: {fileID: 4800000, guid: 34a95dd02b84ee748a5fa3a03768e94e, type: 3}
+  m_Shader: {fileID: 4800000, guid: 3f5bff8f842dc7d47b5bb4388994ef6a, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
   m_CustomRenderQueue: 2000

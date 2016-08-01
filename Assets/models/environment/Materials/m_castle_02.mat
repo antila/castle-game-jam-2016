@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: m_castle_02
-  m_Shader: {fileID: 4800000, guid: 34a95dd02b84ee748a5fa3a03768e94e, type: 3}
+  m_Shader: {fileID: 4800000, guid: 3f5bff8f842dc7d47b5bb4388994ef6a, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
   m_CustomRenderQueue: 2000
@@ -109,7 +109,7 @@ Material:
       data:
         first:
           name: _Glossiness
-        second: 0
+        second: 0.15
       data:
         first:
           name: _BumpScale
@@ -186,6 +186,10 @@ Material:
         first:
           name: _SunAltitude
         second: 38
+      data:
+        first:
+          name: _Middle
+        second: 0.473
     m_Colors:
       data:
         first:
@@ -194,7 +198,7 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: 0.846, g: 0.631962, b: 0.631962, a: 1}
+        second: {r: 1, g: 0.8014706, b: 0.8014706, a: 1}
       data:
         first:
           name: _SpecColor
@@ -239,3 +243,15 @@ Material:
         first:
           name: _BaseScale
         second: {r: 1, g: 1, b: 1, a: 0}
+      data:
+        first:
+          name: _ColorTop
+        second: {r: 0.97794116, g: 0.9635597, b: 0.9635597, a: 1}
+      data:
+        first:
+          name: _ColorMid
+        second: {r: 0.8455882, g: 0.75854236, b: 0.75854236, a: 1}
+      data:
+        first:
+          name: _ColorBot
+        second: {r: 0.8308824, g: 0.7331315, b: 0.7331315, a: 1}
